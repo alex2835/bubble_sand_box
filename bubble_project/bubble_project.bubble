@@ -1,0 +1,67 @@
+{
+ "Loader": {
+  "models": [
+   "models\\gribok\\gribok.obj"
+  ],
+  "shaders": [
+   "./resources/shaders/phong",
+   "./resources/shaders/only_diffuse",
+   "./resources/shaders/white"
+  ],
+  "skyboxes": null,
+  "textures": null
+ },
+ "Scene": {
+  "Component counter": 5,
+  "Component pools": {
+   "ModelComponent": {
+    "1": "models\\gribok\\gribok.obj"
+   },
+   "ScriptComponent": {
+    "1": "scripts\\test1.lua"
+   },
+   "ShaderComponent": {
+    "1": "./resources/shaders/only_diffuse"
+   },
+   "TagComponent": {
+    "1": "gribok"
+   },
+   "TransformComponent": {
+    "1": {
+     "Position": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "Rotation": [
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "Scale": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "Components": {
+   "ModelComponent": 2,
+   "ScriptComponent": 5,
+   "ShaderComponent": 4,
+   "TagComponent": 1,
+   "TransformComponent": 3
+  },
+  "Entity components": {
+   "1": [
+    1,
+    2,
+    4,
+    3,
+    5
+   ]
+  },
+  "Entity counter": 2
+ }
+}
