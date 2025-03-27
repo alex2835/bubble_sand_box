@@ -1,33 +1,33 @@
 {
  "Loader": {
   "models": [
-   "models\\gribok\\gribok.obj"
+   "models/gribok/gribok.obj"
   ],
   "shaders": [
    "./resources/shaders/phong",
-   "./resources/shaders/only_diffuse",
-   "./resources/shaders/white"
+   "./resources/shaders/white",
+   "./resources/shaders/only_diffuse"
   ],
   "skyboxes": null,
   "textures": null
  },
  "Scene": {
-  "Component counter": 5,
+  "Component counter": 1,
   "Component pools": {
-   "ModelComponent": {
-    "1": "models\\gribok\\gribok.obj"
+   "Model": {
+    "2": "models/gribok/gribok.obj"
    },
-   "ScriptComponent": {
-    "1": "scripts\\test1.lua"
+   "Script": {
+    "2": "scripts/test1.lua"
    },
-   "ShaderComponent": {
-    "1": "./resources/shaders/only_diffuse"
+   "Shader": {
+    "2": "./resources/shaders/only_diffuse"
    },
-   "TagComponent": {
-    "1": "gribok"
+   "Tag": {
+    "2": "New entity"
    },
-   "TransformComponent": {
-    "1": {
+   "Transform": {
+    "2": {
      "Position": [
       0.0,
       0.0,
@@ -46,22 +46,22 @@
     }
    }
   },
-  "Components": {
-   "ModelComponent": 2,
-   "ScriptComponent": 5,
-   "ShaderComponent": 4,
-   "TagComponent": 1,
-   "TransformComponent": 3
-  },
+  "Components": [
+   0,
+   3,
+   1,
+   5,
+   6
+  ],
   "Entity components": {
-   "1": [
-    1,
-    2,
-    4,
+   "2": [
+    0,
     3,
-    5
+    1,
+    5,
+    6
    ]
   },
-  "Entity counter": 2
+  "Entity counter": 3
  }
 }
