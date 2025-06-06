@@ -1,7 +1,14 @@
 {
  "Loader": {
   "models": [
-   "models/gribok/gribok.obj"
+   "models/gribok/gribok.obj",
+   "models/ball/ball.obj",
+   "models/banana/banana.obj",
+   "models/bunny/bunny.obj",
+   "models/cube/cube.obj",
+   "models/duck/duck.obj",
+   "models/floor/floor.obj",
+   "models/cloth/cloth_z_up.obj"
   ],
   "shaders": [
    "./resources/shaders/phong",
@@ -11,27 +18,121 @@
   "skyboxes": null,
   "textures": null
  },
+ "ProjectTree": {
+  "Counter": 30,
+  "Tree": {
+   "Children": [
+    {
+     "Children": [
+      {
+       "Children": null,
+       "ID": 2,
+       "State": 1,
+       "Type": "ModelObject"
+      },
+      {
+       "Children": null,
+       "ID": 6,
+       "State": 2,
+       "Type": "PhysicsObject"
+      },
+      {
+       "Children": null,
+       "ID": 7,
+       "State": 3,
+       "Type": "Script"
+      },
+      {
+       "Children": null,
+       "ID": 23,
+       "State": 4,
+       "Type": "PhysicsObject"
+      }
+     ],
+     "ID": 1,
+     "State": "folder",
+     "Type": "Folder"
+    }
+   ],
+   "ID": 0,
+   "State": "Level",
+   "Type": "Level"
+  }
+ },
  "Scene": {
-  "Component counter": 1,
   "Component pools": {
    "Model": {
-    "2": "models/gribok/gribok.obj"
+    "1": {
+     "Path": "models/duck/duck.obj"
+    },
+    "2": {
+     "Path": "models/cube/cube.obj"
+    },
+    "4": {
+     "Path": "models/cube/cube.obj"
+    }
+   },
+   "Physics": {
+    "2": {
+     "HalfExtends": [
+      55.5,
+      0.5,
+      55.5
+     ],
+     "Mass": 0.0,
+     "Type": "Box"
+    },
+    "4": {
+     "HalfExtends": [
+      55.4999885559082,
+      0.49998387694358826,
+      55.5
+     ],
+     "Mass": 0.0,
+     "Type": "Box"
+    }
    },
    "Script": {
-    "2": "scripts/test1.lua"
+    "3": "scripts/test1.lua"
    },
    "Shader": {
-    "2": "./resources/shaders/only_diffuse"
+    "1": {
+     "Path": "./resources/shaders/phong"
+    },
+    "2": {
+     "Path": "./resources/shaders/white"
+    },
+    "4": {
+     "Path": "./resources/shaders/white"
+    }
+   },
+   "State": {
+    "3": {}
    },
    "Tag": {
-    "2": "New entity"
+    "1": {
+     "Class": "Object",
+     "Tag": "Model object"
+    },
+    "2": {
+     "Class": "Object",
+     "Tag": "Physics object"
+    },
+    "3": {
+     "Class": "Object",
+     "Tag": "Script"
+    },
+    "4": {
+     "Class": "Object",
+     "Tag": "Physics object"
+    }
    },
    "Transform": {
-    "2": {
+    "1": {
      "Position": [
+      -1.3113416343912832e-06,
       0.0,
-      0.0,
-      0.0
+      70.0
      ],
      "Rotation": [
       0.0,
@@ -43,25 +144,70 @@
       1.0,
       1.0
      ]
+    },
+    "2": {
+     "Position": [
+      38.46464538574219,
+      -41.73696517944336,
+      53.282962799072266
+     ],
+     "Rotation": [
+      0.35999932885169983,
+      1.0099998712539673,
+      0.0
+     ],
+     "Scale": [
+      110.99988555908203,
+      0.9999809265136719,
+      111.00061798095703
+     ]
+    },
+    "4": {
+     "Position": [
+      89.2545166015625,
+      -42.919456481933594,
+      76.63388061523438
+     ],
+     "Rotation": [
+      0.05964380130171776,
+      -0.4602857530117035,
+      0.5664098262786865
+     ],
+     "Scale": [
+      110.99987030029297,
+      0.9999685883522034,
+      110.999755859375
+     ]
     }
    }
   },
-  "Components": [
-   0,
-   3,
-   1,
-   5,
-   6
-  ],
   "Entity components": {
+   "1": [
+    0,
+    1,
+    3,
+    5
+   ],
    "2": [
     0,
-    3,
     1,
+    3,
     5,
-    6
+    7
+   ],
+   "3": [
+    0,
+    6,
+    8
+   ],
+   "4": [
+    0,
+    1,
+    3,
+    5,
+    7
    ]
   },
-  "Entity counter": 3
+  "Entity counter": 5
  }
 }

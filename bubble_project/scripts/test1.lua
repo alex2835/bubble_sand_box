@@ -1,29 +1,57 @@
 
 
---transform = entity:GetTransformComponent()
---transform.Position.x = 100
---t = transform.x
---t = 20
---entity:AddTransformComponent(transform)
+function create_entity_test()
+    local entity = CreateEntity()
+    print(entity)
+
+    entity:AddTagComponent("created in script entity")
+            
+    local pos = vec3(math.random(1,100), 0, math.random(1,100))
+    local rot = vec3(0)
+    local scale = vec3(1)
+    local trans = Transform(pos, rot, scale)
+    entity:AddTransformComponent( trans)
+    entity:AddModelComponent(LoadModel("models/cube/cube.obj"))
+    entity:AddShaderComponent(LoadShader("./resources/shaders/only_diffuse"))
+    entity:AddStateComponent({health=100})
+            
+    local mass = 5
+    local he = vec3(0.5)
+    entity:AddPhysicsComponent(CreatePhysicsBox(trans, mass, he))
+end
+
 
 function OnUpdate()
     
-    if bIsKeyPressed(bKeyboard.SPACE) then
-        for i = 1,10 do
-            local entity = bScene:CreateEntity()
-            print(entity)
-            entity:AddTagComponent("created in script entity")
-            local pos = vec3(math.random(1,200), 0, math.random(1,200))
-            entity:AddTransformComponent(Transform(pos, vec3(), vec3(1.0)))
-            entity:AddModelComponent(bLoader:LoadModel("models/gribok/gribok.obj"))
-            entity:AddShaderComponent(bLoader:LoadShader("./resources/shaders/only_diffuse"))
-
-            -- local view = bScene:GetRuntimeView({"TransformComponent"})
-            -- for idx, entity in pairs(view) do
-                -- local transform = entity:GetTransformComponent()
-                -- print(entity:GetTagComponent().Name)
-                -- transform.Position.x = transform.Position.x + 0.1
-            -- end
+    if IsKeyClicked(KeyboardKey.SPACE) then
+        for i = 1,100 do
+            create_entity_test()
         end
+
+        ForEachEntity({Component.Tag, Component.State}, function(entity, components)
+            print( string.format("Entity: %s", entity))
+            print( string.format("Tag: %s", components[Component.Tag]) )
+
+            local state = components[Component.State]
+            local health = state["IntVal"]
+            print( string.format("State health: %d", health) )
+            print()
+        end)
     end
+
+
+
+    -- local view = bScene:GetRuntimeView({"TransformComponent"})
+    -- for idx, entity in pairs(view) do
+    --     local transform = entity:GetTransformComponent()
+    --     print(entity:GetTagComponent().Name)
+    --     transform.Position.x = transform.Position.x + 0.1
+    -- end
+
+    --transform = entity:GetTransformComponent()
+    --transform.Position.x = 100
+    --t = transform.x
+    --t = 20
+    --entity:AddTransformComponent(transform)
+
 end
