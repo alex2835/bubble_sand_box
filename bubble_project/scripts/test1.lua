@@ -21,7 +21,7 @@ function create_entity_test()
 end
 
 
-function OnUpdate()
+function OnUpdate(entity, state)
     
     if IsKeyClicked(KeyboardKey.SPACE) then
         for i = 1,100 do

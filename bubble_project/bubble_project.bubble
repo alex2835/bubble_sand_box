@@ -19,38 +19,33 @@
   "textures": null
  },
  "ProjectTree": {
-  "Counter": 30,
+  "Counter": 67,
   "Tree": {
    "Children": [
     {
      "Children": [
       {
        "Children": null,
-       "ID": 2,
-       "State": 1,
-       "Type": "ModelObject"
-      },
-      {
-       "Children": null,
        "ID": 6,
        "State": 2,
-       "Type": "PhysicsObject"
-      },
-      {
-       "Children": null,
-       "ID": 7,
-       "State": 3,
-       "Type": "Script"
-      },
-      {
-       "Children": null,
-       "ID": 23,
-       "State": 4,
        "Type": "PhysicsObject"
       }
      ],
      "ID": 1,
-     "State": "folder",
+     "State": "ground",
+     "Type": "Folder"
+    },
+    {
+     "Children": [
+      {
+       "Children": null,
+       "ID": 51,
+       "State": 5,
+       "Type": "GameObject"
+      }
+     ],
+     "ID": 36,
+     "State": "player",
      "Type": "Folder"
     }
    ],
@@ -62,14 +57,11 @@
  "Scene": {
   "Component pools": {
    "Model": {
-    "1": {
-     "Path": "models/duck/duck.obj"
-    },
     "2": {
      "Path": "models/cube/cube.obj"
     },
-    "4": {
-     "Path": "models/cube/cube.obj"
+    "5": {
+     "Path": "models/ball/ball.obj"
     }
    },
    "Physics": {
@@ -82,57 +74,59 @@
      "Mass": 0.0,
      "Type": "Box"
     },
-    "4": {
-     "HalfExtends": [
-      55.4999885559082,
-      0.49998387694358826,
-      55.5
-     ],
-     "Mass": 0.0,
-     "Type": "Box"
+    "5": {
+     "Mass": 1.0,
+     "Radius": 1.0,
+     "Type": "Sphere"
     }
    },
    "Script": {
-    "3": "scripts/test1.lua"
+    "5": "scripts/shepe_character.lua"
    },
    "Shader": {
-    "1": {
-     "Path": "./resources/shaders/phong"
-    },
     "2": {
      "Path": "./resources/shaders/white"
     },
-    "4": {
-     "Path": "./resources/shaders/white"
+    "5": {
+     "Path": "./resources/shaders/phong"
     }
    },
    "State": {
-    "3": {}
+    "5": {}
    },
    "Tag": {
-    "1": {
-     "Class": "Object",
-     "Tag": "Model object"
-    },
     "2": {
      "Class": "Object",
-     "Tag": "Physics object"
+     "Tag": "floor"
     },
-    "3": {
+    "5": {
      "Class": "Object",
-     "Tag": "Script"
-    },
-    "4": {
-     "Class": "Object",
-     "Tag": "Physics object"
+     "Tag": "playing sphere"
     }
    },
    "Transform": {
-    "1": {
+    "2": {
      "Position": [
-      -1.3113416343912832e-06,
       0.0,
-      70.0
+      -5.5794830322265625,
+      0.0
+     ],
+     "Rotation": [
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "Scale": [
+      110.99988555908203,
+      0.9999809265136719,
+      111.00062561035156
+     ]
+    },
+    "5": {
+     "Position": [
+      -5.488861560821533,
+      -3.758775234222412,
+      43.01340866088867
      ],
      "Rotation": [
       0.0,
@@ -144,50 +138,10 @@
       1.0,
       1.0
      ]
-    },
-    "2": {
-     "Position": [
-      38.46464538574219,
-      -41.73696517944336,
-      53.282962799072266
-     ],
-     "Rotation": [
-      0.35999932885169983,
-      1.0099998712539673,
-      0.0
-     ],
-     "Scale": [
-      110.99988555908203,
-      0.9999809265136719,
-      111.00061798095703
-     ]
-    },
-    "4": {
-     "Position": [
-      89.2545166015625,
-      -42.919456481933594,
-      76.63388061523438
-     ],
-     "Rotation": [
-      0.05964380130171776,
-      -0.4602857530117035,
-      0.5664098262786865
-     ],
-     "Scale": [
-      110.99987030029297,
-      0.9999685883522034,
-      110.999755859375
-     ]
     }
    }
   },
   "Entity components": {
-   "1": [
-    0,
-    1,
-    3,
-    5
-   ],
    "2": [
     0,
     1,
@@ -195,19 +149,16 @@
     5,
     7
    ],
-   "3": [
-    0,
-    6,
-    8
-   ],
-   "4": [
+   "5": [
     0,
     1,
     3,
     5,
-    7
+    6,
+    7,
+    8
    ]
   },
-  "Entity counter": 5
+  "Entity counter": 6
  }
 }
