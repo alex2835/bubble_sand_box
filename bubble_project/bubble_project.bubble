@@ -13,13 +13,14 @@
   "shaders": [
    "./resources/shaders/phong",
    "./resources/shaders/white",
-   "./resources/shaders/only_diffuse"
+   "./resources/shaders/only_diffuse",
+   "shaders/phong/p1"
   ],
   "skyboxes": null,
   "textures": null
  },
  "ProjectTree": {
-  "Counter": 67,
+  "Counter": 146,
   "Tree": {
    "Children": [
     {
@@ -42,11 +43,29 @@
        "ID": 51,
        "State": 5,
        "Type": "GameObject"
+      },
+      {
+       "Children": null,
+       "ID": 100,
+       "State": 7,
+       "Type": "Light"
+      },
+      {
+       "Children": null,
+       "ID": 129,
+       "State": 8,
+       "Type": "Light"
       }
      ],
      "ID": 36,
      "State": "player",
      "Type": "Folder"
+    },
+    {
+     "Children": null,
+     "ID": 87,
+     "State": 6,
+     "Type": "Script"
     }
    ],
    "ID": 0,
@@ -56,6 +75,58 @@
  },
  "Scene": {
   "Component pools": {
+   "Light": {
+    "7": {
+     "Brightness": 1.1299999952316284,
+     "Color": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "Constant": 1.0,
+     "CutOff": 21.77400016784668,
+     "Direction": [
+      0.9957561492919922,
+      -0.069941446185112,
+      0.05981707200407982
+     ],
+     "Distance": 1.0,
+     "Linear": 0.00139999995008111,
+     "OuterCutOff": 36.77399826049805,
+     "Position": [
+      -53.694007873535156,
+      4.948336601257324,
+      -25.1126766204834
+     ],
+     "Quadratic": 7.000000096013537e-06,
+     "Type": 2
+    },
+    "8": {
+     "Brightness": 1.0099999904632568,
+     "Color": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "Constant": 1.0,
+     "CutOff": 0.0,
+     "Direction": [
+      1.0,
+      0.0,
+      -0.0
+     ],
+     "Distance": 0.0,
+     "Linear": 0.0,
+     "OuterCutOff": 0.0,
+     "Position": [
+      12.396821022033691,
+      -0.6680927872657776,
+      34.978668212890625
+     ],
+     "Quadratic": 0.0,
+     "Type": 1
+    }
+   },
    "Model": {
     "2": {
      "Path": "models/cube/cube.obj"
@@ -66,6 +137,7 @@
    },
    "Physics": {
     "2": {
+     "Friction": 1.0,
      "HalfExtends": [
       55.5,
       0.5,
@@ -75,24 +147,27 @@
      "Type": "Box"
     },
     "5": {
-     "Mass": 1.0,
-     "Radius": 1.0,
+     "Friction": 0.5,
+     "Mass": 0.0,
+     "Radius": 3.0,
      "Type": "Sphere"
     }
    },
    "Script": {
-    "5": "scripts/shepe_character.lua"
+    "5": "scripts/shepe_character.lua",
+    "6": "scripts/test1.lua"
    },
    "Shader": {
     "2": {
-     "Path": "./resources/shaders/white"
+     "Path": "shaders/phong/p1"
     },
     "5": {
-     "Path": "./resources/shaders/phong"
+     "Path": "shaders/phong/p1"
     }
    },
    "State": {
-    "5": {}
+    "5": {},
+    "6": {}
    },
    "Tag": {
     "2": {
@@ -102,12 +177,24 @@
     "5": {
      "Class": "Object",
      "Tag": "playing sphere"
+    },
+    "6": {
+     "Class": "Object",
+     "Tag": "ScriptGenerateCubes"
+    },
+    "7": {
+     "Class": "Object",
+     "Tag": "Light"
+    },
+    "8": {
+     "Class": "Object",
+     "Tag": "Light"
     }
    },
    "Transform": {
     "2": {
      "Position": [
-      0.0,
+      -8.712499618530273,
       -5.5794830322265625,
       0.0
      ],
@@ -124,9 +211,43 @@
     },
     "5": {
      "Position": [
-      -5.488861560821533,
-      -3.758775234222412,
-      43.01340866088867
+      -12.62246322631836,
+      -0.14416804909706116,
+      11.754018783569336
+     ],
+     "Rotation": [
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "Scale": [
+      3.0,
+      3.0,
+      3.0
+     ]
+    },
+    "7": {
+     "Position": [
+      -53.694007873535156,
+      4.948336601257324,
+      -25.1126766204834
+     ],
+     "Rotation": [
+      -0.06999858468770981,
+      0.05999990552663803,
+      -0.1399945765733719
+     ],
+     "Scale": [
+      0.9983018040657043,
+      1.3799395561218262,
+      0.9998233318328857
+     ]
+    },
+    "8": {
+     "Position": [
+      12.396821022033691,
+      -0.6680927872657776,
+      34.978668212890625
      ],
      "Rotation": [
       0.0,
@@ -157,8 +278,23 @@
     6,
     7,
     8
+   ],
+   "6": [
+    0,
+    6,
+    8
+   ],
+   "7": [
+    0,
+    1,
+    4
+   ],
+   "8": [
+    0,
+    1,
+    4
    ]
   },
-  "Entity counter": 6
+  "Entity counter": 9
  }
 }
