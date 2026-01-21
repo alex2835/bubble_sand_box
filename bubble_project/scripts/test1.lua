@@ -2,7 +2,7 @@
 
 function create_entity_test()
     local entity = CreateEntity()
-    -- print(entity)
+    print(entity)
 
     entity:AddTagComponent("created in script entity")
             
@@ -14,6 +14,8 @@ function create_entity_test()
     entity:AddModelComponent(LoadModel("models/cube/cube.obj"))
     entity:AddShaderComponent(LoadShader("shaders/phong/p1"))
     entity:AddStateComponent({health=100})
+
+    entity:AddLightComponent(Light.CreatePointLight(vec3(), 10, vec3(1.0)))
             
     local he = vec3(0.5)
     entity:AddPhysicsComponent(CreatePhysicsBox(trans, he))

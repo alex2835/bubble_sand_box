@@ -2,13 +2,13 @@
  "Loader": {
   "models": [
    "./resources/models/error.obj",
-   "models/floor/floor.obj",
-   "models/gribok/gribok.obj",
-   "models/ball/ball.obj",
+   "models/cube/cube.obj",
+   "models/bunny/bunny.obj",
    "models/duck/duck.obj",
    "models/banana/banana.obj",
-   "models/bunny/bunny.obj",
-   "models/cube/cube.obj",
+   "models/ball/ball.obj",
+   "models/floor/floor.obj",
+   "models/gribok/gribok.obj",
    "models/cloth/cloth_z_up.obj"
   ],
   "shaders": [
@@ -23,7 +23,7 @@
   ]
  },
  "ProjectTree": {
-  "Counter": 180,
+  "Counter": 189,
   "Tree": {
    "Children": [
     {
@@ -160,15 +160,15 @@
       0.0,
       -0.0
      ],
-     "Distance": 495.1000061035156,
-     "Linear": 0.009670182131230831,
+     "Distance": 231.6999969482422,
+     "Linear": 0.019971199333667755,
      "OuterCutOff": 0.0,
      "Position": [
       12.396821022033691,
-      -0.6680927872657776,
+      9.748943328857422,
       34.978668212890625
      ],
-     "Quadratic": 0.0003907272475771606,
+     "Quadratic": 0.0015956800198182464,
      "Type": 1
     }
    },
@@ -295,7 +295,7 @@
     "8": {
      "Position": [
       12.396821022033691,
-      -0.6680927872657776,
+      9.748943328857422,
       34.978668212890625
      ],
      "Rotation": [
