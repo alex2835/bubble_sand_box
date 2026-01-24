@@ -5,24 +5,28 @@ function create_entity_test()
     print(entity)
 
     entity:AddTagComponent("created in script entity")
-            
+    
     local pos = vec3(math.random(1,10), 0, math.random(1,10))
     local rot = vec3(0)
     local scale = vec3(1)
     local trans = Transform(pos, rot, scale)
-    entity:AddTransformComponent( trans)
+    entity:AddTransformComponent(trans)
     entity:AddModelComponent(LoadModel("models/cube/cube.obj"))
     entity:AddShaderComponent(LoadShader("shaders/phong/p1"))
     entity:AddStateComponent({health=100})
 
-    entity:AddLightComponent(Light.CreatePointLight(vec3(), 10, vec3(1.0)))
-            
-    local he = vec3(0.5)
-    entity:AddPhysicsComponent(CreatePhysicsBox(trans, he))
-    
-    local mass = 5
+    -- light
+    -- light = Light:CreatePointLight()
+    -- light.Distance = 20
+    -- light.Brightness = 1
+    -- entity:AddLightComponent(light)
+
+    -- physics
+    local mass = 1
+    local halpExtend = vec3(0.5)
+    entity:AddPhysicsComponent(CreatePhysicsBox(trans, mass, halpExtend))
     local physics = entity:GetPhysicsComponent()
-    physics:SetMass(mass)
+    physics:SetMass(5)
     physics:SetFriction(1.0)
 end
 
@@ -30,9 +34,11 @@ end
 function OnUpdate(entity, state)
     
     if IsKeyClicked(KeyboardKey.SPACE) then
-        for i = 1,100 do
+        for i = 1,1000 do
             create_entity_test()
         end
+
+        -- error("error")
 
         ForEachEntity({Component.Tag, Component.State}, function(entity, components)
             -- print( string.format("Entity: %s", entity))

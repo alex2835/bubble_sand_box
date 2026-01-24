@@ -2,13 +2,13 @@
  "Loader": {
   "models": [
    "./resources/models/error.obj",
-   "models/cube/cube.obj",
-   "models/bunny/bunny.obj",
-   "models/duck/duck.obj",
-   "models/banana/banana.obj",
-   "models/ball/ball.obj",
    "models/floor/floor.obj",
    "models/gribok/gribok.obj",
+   "models/ball/ball.obj",
+   "models/duck/duck.obj",
+   "models/banana/banana.obj",
+   "models/bunny/bunny.obj",
+   "models/cube/cube.obj",
    "models/cloth/cloth_z_up.obj"
   ],
   "shaders": [
@@ -23,7 +23,7 @@
   ]
  },
  "ProjectTree": {
-  "Counter": 189,
+  "Counter": 270,
   "Tree": {
    "Children": [
     {
@@ -31,7 +31,7 @@
       {
        "Children": null,
        "ID": 6,
-       "State": 2,
+       "State": 10,
        "Type": "PhysicsObject"
       }
      ],
@@ -44,25 +44,25 @@
       {
        "Children": null,
        "ID": 51,
-       "State": 5,
+       "State": 15,
        "Type": "GameObject"
       },
       {
        "Children": null,
        "ID": 100,
-       "State": 7,
+       "State": 16,
        "Type": "Light"
       },
       {
        "Children": null,
        "ID": 129,
-       "State": 8,
+       "State": 17,
        "Type": "Light"
       },
       {
        "Children": null,
        "ID": 170,
-       "State": 9,
+       "State": 18,
        "Type": "Camera"
       }
      ],
@@ -85,7 +85,7 @@
  "Scene": {
   "Component pools": {
    "Camera": {
-    "9": {
+    "18": {
      "Far": 5000.0,
      "Forward": [
       -4.371138828673793e-08,
@@ -121,7 +121,7 @@
     }
    },
    "Light": {
-    "7": {
+    "16": {
      "Brightness": 1.1299999952316284,
      "Color": [
       1.0,
@@ -131,23 +131,23 @@
      "Constant": 1.0,
      "CutOff": 21.77400016784668,
      "Direction": [
-      0.9957561492919922,
-      -0.069941446185112,
-      0.05981707200407982
+      -0.13504309952259064,
+      -0.9883769750595093,
+      0.06981558352708817
      ],
      "Distance": 405.79998779296875,
      "Linear": 0.0119432732462883,
      "OuterCutOff": 36.77399826049805,
      "Position": [
-      -53.694007873535156,
-      4.948336601257324,
-      -25.1126766204834
+      -51.255680084228516,
+      22.794431686401367,
+      -26.373262405395508
      ],
      "Quadratic": 0.0005530909402295947,
      "Type": 2
     },
-    "8": {
-     "Brightness": 1.0099999904632568,
+    "17": {
+     "Brightness": 0.8899999856948853,
      "Color": [
       1.0,
       1.0,
@@ -156,32 +156,32 @@
      "Constant": 1.0,
      "CutOff": 0.0,
      "Direction": [
-      1.0,
       0.0,
-      -0.0
+      -0.9835792779922485,
+      -0.18047656118869781
      ],
-     "Distance": 231.6999969482422,
-     "Linear": 0.019971199333667755,
+     "Distance": 1679.0,
+     "Linear": 0.004719849210232496,
      "OuterCutOff": 0.0,
      "Position": [
-      12.396821022033691,
-      9.748943328857422,
+      11.55173110961914,
+      12.025276184082031,
       34.978668212890625
      ],
-     "Quadratic": 0.0015956800198182464,
+     "Quadratic": 0.00012141621846240014,
      "Type": 1
     }
    },
    "Model": {
-    "2": {
+    "10": {
      "Path": "models/cube/cube.obj"
     },
-    "5": {
+    "15": {
      "Path": "models/ball/ball.obj"
     }
    },
    "Physics": {
-    "2": {
+    "10": {
      "Friction": 1.0,
      "HalfExtends": [
       55.5,
@@ -191,7 +191,7 @@
      "Mass": 0.0,
      "Type": "Box"
     },
-    "5": {
+    "15": {
      "Friction": 1.0,
      "Mass": 1.0,
      "Radius": 3.0,
@@ -199,53 +199,53 @@
     }
    },
    "Script": {
-    "5": "scripts/shepe_character.lua",
+    "15": "scripts/shepe_character.lua",
     "6": "scripts/test1.lua"
    },
    "Shader": {
-    "2": {
+    "10": {
      "Path": "shaders/phong/p1"
     },
-    "5": {
+    "15": {
      "Path": "shaders/phong/p1"
     }
    },
    "State": {
-    "5": {},
+    "15": {},
     "6": {}
    },
    "Tag": {
-    "2": {
+    "10": {
      "Class": "Object",
      "Tag": "floor"
     },
-    "5": {
+    "15": {
      "Class": "Object",
      "Tag": "playing sphere"
+    },
+    "16": {
+     "Class": "Object",
+     "Tag": "Light"
+    },
+    "17": {
+     "Class": "Object",
+     "Tag": "Light"
+    },
+    "18": {
+     "Class": "Object",
+     "Tag": "Camera"
     },
     "6": {
      "Class": "Object",
      "Tag": "ScriptGenerateCubes"
-    },
-    "7": {
-     "Class": "Object",
-     "Tag": "Light"
-    },
-    "8": {
-     "Class": "Object",
-     "Tag": "Light"
-    },
-    "9": {
-     "Class": "Object",
-     "Tag": "Camera"
     }
    },
    "Transform": {
-    "2": {
+    "10": {
      "Position": [
-      -9.056005477905273,
-      -5.5794830322265625,
-      -0.19128894805908203
+      -17.50803565979004,
+      -3.3971545696258545,
+      0.0
      ],
      "Rotation": [
       0.0,
@@ -254,19 +254,19 @@
      ],
      "Scale": [
       110.99988555908203,
-      0.9999809265136719,
-      111.00062561035156
+      0.9999845027923584,
+      111.00039672851563
      ]
     },
-    "5": {
+    "15": {
      "Position": [
-      -12.62246322631836,
+      -2.982207775115967,
       2.755070447921753,
       11.754018783569336
      ],
      "Rotation": [
       0.0,
-      0.0,
+      -0.0,
       0.0
      ],
      "Scale": [
@@ -275,11 +275,11 @@
       3.0
      ]
     },
-    "7": {
+    "16": {
      "Position": [
-      -53.694007873535156,
-      4.948336601257324,
-      -25.1126766204834
+      -51.255680084228516,
+      22.794431686401367,
+      -26.373262405395508
      ],
      "Rotation": [
       -0.06999858468770981,
@@ -292,24 +292,24 @@
       0.9998233318328857
      ]
     },
-    "8": {
+    "17": {
      "Position": [
-      12.396821022033691,
-      9.748943328857422,
+      11.55173110961914,
+      12.025276184082031,
       34.978668212890625
      ],
      "Rotation": [
-      0.0,
+      0.18147094547748566,
       -0.0,
       0.0
      ],
      "Scale": [
-      1.0,
+      0.9999953508377075,
       1.0,
       1.0
      ]
     },
-    "9": {
+    "18": {
      "Position": [
       -30.475156784057617,
       7.536840438842773,
@@ -329,14 +329,14 @@
    }
   },
   "Entity components": {
-   "2": [
+   "10": [
     0,
     1,
     3,
     5,
     7
    ],
-   "5": [
+   "15": [
     0,
     1,
     3,
@@ -345,27 +345,27 @@
     7,
     8
    ],
+   "16": [
+    0,
+    1,
+    4
+   ],
+   "17": [
+    0,
+    1,
+    4
+   ],
+   "18": [
+    0,
+    1,
+    2
+   ],
    "6": [
     0,
     6,
     8
-   ],
-   "7": [
-    0,
-    1,
-    4
-   ],
-   "8": [
-    0,
-    1,
-    4
-   ],
-   "9": [
-    0,
-    1,
-    2
    ]
   },
-  "Entity counter": 10
+  "Entity counter": 19
  }
 }
