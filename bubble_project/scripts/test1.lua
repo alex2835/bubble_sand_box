@@ -24,17 +24,16 @@ function create_entity_test()
     -- physics
     local mass = 1
     local halpExtend = vec3(0.5)
-    entity:AddPhysicsComponent(CreatePhysicsBox(trans, mass, halpExtend))
-    local physics = entity:GetPhysicsComponent()
-    physics:SetMass(5)
-    physics:SetFriction(1.0)
+    physicsObject = CreatePhysicsBox(trans, mass, halpExtend)
+    physicsObject:SetFriction(1.0)
+    entity:AddPhysicsComponent(physicsObject)
 end
 
 
 function OnUpdate(entity, state)
     
     if IsKeyClicked(KeyboardKey.SPACE) then
-        for i = 1,1000 do
+        for i = 1,100 do
             create_entity_test()
         end
 
