@@ -2,7 +2,7 @@
 
 function create_entity_test()
     local entity = CreateEntity()
-    print(entity)
+    -- print(entity)
 
     entity:AddTagComponent("created in script entity")
     
@@ -24,30 +24,29 @@ function create_entity_test()
     -- physics
     local mass = 1
     local halpExtend = vec3(0.5)
-    physicsObject = CreatePhysicsBox(trans, mass, halpExtend)
+    physicsObject = CreateRigidBodyBox(trans, mass, halpExtend)
     physicsObject:SetFriction(1.0)
-    entity:AddPhysicsComponent(physicsObject)
+    entity:AddRigidBodyComponent(physicsObject)
 end
 
 
 function OnUpdate(entity, state)
     
-    if IsKeyClicked(KeyboardKey.SPACE) then
+    if IsKeyClicked(KeyboardKey.SPACE) and state.CreateCubes then
         for i = 1,100 do
             create_entity_test()
         end
 
         -- error("error")
 
-        ForEachEntity({Component.Tag, Component.State}, function(entity, components)
-            -- print( string.format("Entity: %s", entity))
-            -- print( string.format("Tag: %s", components[Component.Tag]) )
-
-            local state = components[Component.State]
-            local health = state["IntVal"]
-            -- print( string.format("State health: %d", health) )
-            -- print()
-        end)
+        -- ForEachEntity({Component.Tag, Component.State}, function(entity, components)
+        --     -- print( string.format("Entity: %s", entity))
+        --     -- print( string.format("Tag: %s", components[Component.Tag]) )
+        --     -- local state = components[Component.State]
+        --     -- local health = state["IntVal"]
+        --     -- print( string.format("State health: %d", health) )
+        --     -- print()
+        -- end)
     end
 
 
