@@ -9,6 +9,9 @@ in vec3 vNormal;
 in vec2 vTexCoords;
 in mat3 vTBN;
 
+// Per-entity color override (set via Lua: entity:GetShaderComponent().Uniforms.color = vec4(1,0,0,1))
+uniform vec4 uColor = vec4(1.0);
+
 // Fragment output
 out vec4 FragColor;
 
@@ -36,7 +39,7 @@ void main()
     
     // Diffuse: ambient + light contribution
     // vec3 diffuse = max(uMaterial.ambientColor.rgb, diffuse_light) * diffuse_texel.rgb;
-    vec3 diffuse = diffuse_light * diffuse_texel.rgb;
+    vec3 diffuse = diffuse_light * (diffuse_texel.rgb * uColor.rgb);
     
     // Specular: light contribution only (no ambient)
     // vec3 specular = specular_light * uMaterial.specularColor.rgb * specular_texel.rgb;

@@ -28,10 +28,10 @@ function OnUpdate(entity, state)
 
     -- Zoom: Q zooms in, E zooms out
     if IsKeyPressed(KeyboardKey.Q) then
-        camera.Radius = math.max( MIN_RADIUS, camera.Radius - ZOOM_SPEED * DeltaTime )
+        camera.Radius = math.max( MIN_RADIUS, camera.Radius - ZOOM_SPEED * dt )
     end
     if IsKeyPressed(KeyboardKey.E) then
-        camera.Radius = math.min( MAX_RADIUS, camera.Radius + ZOOM_SPEED * DeltaTime )
+        camera.Radius = math.min( MAX_RADIUS, camera.Radius + ZOOM_SPEED * dt )
     end
 
     camera:UpdateOrbit()
