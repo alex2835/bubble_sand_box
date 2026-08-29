@@ -1,8 +1,8 @@
 
 
 function OnUpdate(entity, state)
-    if IsKeyClicked(KeyboardKey.SPACE) then
-        print(entity:GetTagComponent().Name)
+    if is_key_clicked(KeyboardKey.SPACE) then
+        print(entity:get_tag_component().name)
         print(state)
     end
 end

@@ -3,13 +3,13 @@
  "Loader": {
   "models": [
    "./resources/models/error.obj",
-   "models/cube/cube.obj",
-   "models/bunny/bunny.obj",
-   "models/duck/duck.obj",
-   "models/banana/banana.obj",
-   "models/ball/ball.obj",
    "models/floor/floor.obj",
    "models/gribok/gribok.obj",
+   "models/ball/ball.obj",
+   "models/duck/duck.obj",
+   "models/banana/banana.obj",
+   "models/bunny/bunny.obj",
+   "models/cube/cube.obj",
    "models/cloth/cloth_z_up.obj",
    "models/capsule/capsule.obj"
   ],
@@ -25,7 +25,7 @@
   ]
  },
  "ProjectTree": {
-  "Counter": 2258,
+  "Counter": 2379,
   "Tree": {
    "Children": [
     {
@@ -137,14 +137,14 @@
    },
    "CharacterController": {
     "15": {
-     "FallSpeed": 50.0,
+     "FallSpeed": 150.0,
      "Gravity": [
       0.0,
-      -30.0,
+      -10.0,
       0.0
      ],
      "Height": 4.0,
-     "JumpSpeed": 20.0,
+     "JumpSpeed": 30.0,
      "MaxSlopeRadians": 0.7853981852531433,
      "Radius": 2.390000104904175,
      "StepHeight": 0.3499999940395355

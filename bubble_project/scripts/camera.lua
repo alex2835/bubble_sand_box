@@ -8,31 +8,31 @@ local initialized = false
 
 function OnUpdate(entity, state)
     if not initialized then
-        SetActiveCamera(entity)
+        set_active_camera(entity)
         initialized = true
     end
 
-    local camera = entity:GetCameraComponent()
+    local camera = entity:get_camera_component()
     local player  = state.CharacterEntity
 
     -- Keep orbit center locked to the player
-    camera.Center = player:GetTransformComponent().Position
+    camera.center = player:get_transform_component().position
 
     -- Orbit rotation: hold right mouse button + drag mouse
-    -- if IsKeyPressed(MouseKey.RIGHT) then
-        camera.Yaw   = camera.Yaw - MouseOffsetX() * SENSITIVITY
+    -- if is_key_pressed(MouseKey.RIGHT) then
+        camera.yaw   = camera.yaw - mouse_offset_x() * SENSITIVITY
         -- Negate Y: window Y is flipped (positive = up), so mouse-up → camera up → look down
-        camera.Pitch = camera.Pitch + MouseOffsetY() * SENSITIVITY
-        camera.Pitch = math.max( -PI / 2 + 0.05, math.min( PI / 2 - 0.05, camera.Pitch ) )
+        camera.pitch = camera.pitch + mouse_offset_y() * SENSITIVITY
+        camera.pitch = math.max( -PI / 2 + 0.05, math.min( PI / 2 - 0.05, camera.pitch ) )
     -- end
 
     -- Zoom: Q zooms in, E zooms out
-    if IsKeyPressed(KeyboardKey.Q) then
-        camera.Radius = math.max( MIN_RADIUS, camera.Radius - ZOOM_SPEED * dt )
+    if is_key_pressed(KeyboardKey.q) then
+        camera.radius = math.max( MIN_RADIUS, camera.radius - ZOOM_SPEED * dt )
     end
-    if IsKeyPressed(KeyboardKey.E) then
-        camera.Radius = math.min( MAX_RADIUS, camera.Radius + ZOOM_SPEED * dt )
+    if is_key_pressed(KeyboardKey.e) then
+        camera.radius = math.min( MAX_RADIUS, camera.radius + ZOOM_SPEED * dt )
     end
 
-    camera:UpdateOrbit()
+    camera:update_orbit()
 end
