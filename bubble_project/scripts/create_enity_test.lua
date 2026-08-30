@@ -4,33 +4,33 @@ function create_entity_test()
     local entity = create_entity()
     -- print(entity)
 
-    entity:add_tag_component("created in script entity")
+    entity:add_tag("created in script entity")
 
     local pos = vec3(math.random(1,10), 0, math.random(1,10))
     local rot = vec3(0)
     local scale = vec3(1)
     local trans = Transform(pos, rot, scale)
-    entity:add_transform_component(trans)
-    entity:add_model_component(load_model("models/cube/cube.obj"))
-    entity:add_shader_component(load_shader("shaders/phong/p1"))
-    entity:add_state_component({health=100})
+    entity:add_transform(trans)
+    entity:add_model(load_model("models/cube/cube.obj"))
+    entity:add_shader(load_shader("shaders/phong/p1"))
+    entity:add_state({health=100})
 
     -- light
-    -- light = Light:create_point_light()
+    -- local light = Light:create_point_light()
     -- light.distance = 20
     -- light.brightness = 1
-    -- entity:add_light_component(light)
+    -- entity:add_light(light)
 
     -- physics
     local mass = 1
     local halpExtend = vec3(0.5)
-    physicsObject = create_rigid_body_box(trans, mass, halpExtend)
+    local physicsObject = create_rigid_body_box(trans, mass, halpExtend)
     physicsObject:set_friction(1.0)
-    entity:add_rigid_body_component(physicsObject)
+    entity:add_rigid_body(physicsObject)
 end
 
 
-function OnUpdate(entity, state)
+function on_update(entity, state, dt)
 
     if is_key_clicked(KeyboardKey.space) and state.CreateCubes then
         for i = 1,100 do

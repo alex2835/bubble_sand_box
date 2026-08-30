@@ -16,6 +16,7 @@
   "shaders": [
    "./resources/shaders/phong",
    "./resources/shaders/white",
+   "shaders/phong/character_shader/character",
    "./resources/shaders/only_diffuse",
    "shaders/phong/p1"
   ],
@@ -25,7 +26,7 @@
   ]
  },
  "ProjectTree": {
-  "Counter": 2379,
+  "Counter": 2643,
   "Tree": {
    "Children": [
     {
@@ -137,10 +138,10 @@
    },
    "CharacterController": {
     "15": {
-     "FallSpeed": 150.0,
+     "FallSpeed": 30.0,
      "Gravity": [
       0.0,
-      -10.0,
+      -30.0,
       0.0
      ],
      "Height": 4.0,
@@ -169,7 +170,7 @@
      "Linear": 0.0119432732462883,
      "OuterCutOff": 36.77399826049805,
      "Position": [
-      -50.354042053222656,
+      -57.36243438720703,
       18.949466705322266,
       -23.84992027282715
      ],
@@ -267,7 +268,7 @@
      }
     },
     "15": {
-     "Path": "shaders/phong/p1",
+     "Path": "shaders/phong/character_shader/character",
      "Uniforms": {
       "uColor": {
        "__type": "vec4",
@@ -357,7 +358,7 @@
    "Transform": {
     "10": {
      "Position": [
-      -23.078014373779297,
+      -24.405223846435547,
       -3.3971545696258545,
       0.0
      ],
@@ -376,7 +377,7 @@
      "Position": [
       -4.580053806304932,
       1.5479826927185059,
-      37.59014892578125
+      37.460960388183594
      ],
      "Rotation": [
       0.0,
@@ -391,7 +392,7 @@
     },
     "16": {
      "Position": [
-      -50.354042053222656,
+      -57.36243438720703,
       18.949466705322266,
       -23.84992027282715
      ],
@@ -425,7 +426,7 @@
     },
     "18": {
      "Position": [
-      -1.4830738306045532,
+      -0.4831259846687317,
       12.055083274841309,
       70.83128356933594
      ],

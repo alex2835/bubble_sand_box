@@ -6,17 +6,17 @@ local SENSITIVITY = 0.004   -- radians per pixel
 local PI          = math.pi
 local initialized = false
 
-function OnUpdate(entity, state)
+function on_update(entity, state, dt)
     if not initialized then
         set_active_camera(entity)
         initialized = true
     end
 
-    local camera = entity:get_camera_component()
+    local camera = entity:get_camera()
     local player  = state.CharacterEntity
 
     -- Keep orbit center locked to the player
-    camera.center = player:get_transform_component().position
+    camera.center = player:get_transform().position
 
     -- Orbit rotation: hold right mouse button + drag mouse
     -- if is_key_pressed(MouseKey.RIGHT) then
