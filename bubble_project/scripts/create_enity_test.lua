@@ -1,32 +1,16 @@
 
 
 function create_entity_test()
-    local entity = create_entity()
-    -- print(entity)
-
-    entity:add_tag("created in script entity")
-
-    local pos = vec3(math.random(1,10), 0, math.random(1,10))
-    local rot = vec3(0)
-    local scale = vec3(1)
-    local trans = Transform(pos, rot, scale)
-    entity:add_transform(trans)
-    entity:add_model(load_model("models/cube/cube.obj"))
-    entity:add_shader(load_shader("shaders/phong/p1"))
-    entity:add_state({health=100})
-
-    -- light
-    -- local light = Light:create_point_light()
-    -- light.distance = 20
-    -- light.brightness = 1
-    -- entity:add_light(light)
-
-    -- physics
-    local mass = 1
-    local halpExtend = vec3(0.5)
-    local physicsObject = create_rigid_body_box(trans, mass, halpExtend)
-    physicsObject:set_friction(1.0)
-    entity:add_rigid_body(physicsObject)
+    -- Everything not given here has the obvious default: identity rotation,
+    -- unit scale, and no shader means the engine's default one.
+    spawn{
+        tag        = "created in script entity",
+        pos        = vec3( math.random( 1, 10 ), 0, math.random( 1, 10 ) ),
+        model      = "models/cube/cube.obj",
+        shader     = "shaders/phong/p1",
+        state      = { health = 100 },
+        rigid_body = { box = vec3( 0.5 ), mass = 1, friction = 1.0 },
+    }
 end
 
 

@@ -30,7 +30,7 @@ function on_update(entity, state, dt)
     local player  = state.CharacterEntity
     
     -- Keep orbit center locked to the player
-    camera.center = player:get_transform().position
+    camera.center = player.position
 
     -- Orbit rotation follows the mouse, but only while it is captured. Released,
     -- the pointer is being used on the editor and its movement is not camera

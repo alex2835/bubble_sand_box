@@ -101,6 +101,5 @@ function on_update( entity, state, dt )
     state.jumpBuffer = buffer
 
     -- Red while airborne
-    local uniforms = entity:get_shader().uniforms
-    uniforms.uColor = grounded and vec4( 1, 1, 1, 1 ) or vec4( 1, 0, 0, 1 )
+    entity.uniforms.uColor = grounded and vec4( 1, 1, 1, 1 ) or vec4( 1, 0, 0, 1 )
 end
