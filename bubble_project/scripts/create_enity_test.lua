@@ -20,32 +20,11 @@ function on_update(entity, state, dt)
         for i = 1,100 do
             create_entity_test()
         end
-
-        -- error("error")
-
-        -- for_each_entity({Component.tag, Component.state}, function(entity, components)
-        --     -- print( string.format("Entity: %s", entity))
-        --     -- print( string.format("Tag: %s", components[Component.tag]) )
-        --     -- local state = components[Component.state]
-        --     -- local health = state["IntVal"]
-        --     -- print( string.format("State health: %d", health) )
-        --     -- print()
-        -- end)
     end
 
-
-
-    -- local view = bScene:GetRuntimeView({"TransformComponent"})
-    -- for idx, entity in pairs(view) do
-    --     local transform = entity:get_transform_component()
-    --     print(entity:get_tag_component().name)
-    --     transform.position.x = transform.position.x + 0.1
-    -- end
-
-    --transform = entity:get_transform_component()
-    --transform.position.x = 100
-    --t = transform.x
-    --t = 20
-    --entity:add_transform_component(transform)
+    for_each_entity({Component.transform}, function(entity, components)
+        local transform = components.transform
+        transform.position.x = transform.position.x + 0.3 * dt
+    end)
 
 end

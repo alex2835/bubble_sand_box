@@ -11,5 +11,6 @@ out vec4 FragColor;
 
 void main()
 {
-    FragColor = PhongFragment(uColor);
+    vec4 phongColor = PhongFragment();
+    FragColor = phongColor * uColor;
 }

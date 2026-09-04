@@ -4,8 +4,23 @@
 
 -- Speeds in units/second
 local WALK_SPEED   = 40.0
-local SPRINT_SPEED = 50.0
-local JUMP_SPEED   = 10.0
+local SPRINT_SPEED = 70.0
+
+-- Jumping is authored as a height and a time, because those are the two things
+-- you can actually see on screen. Bullet integrates the vertical axis explicitly,
+-- so apex = v0^2/(2g); that pair inverts to g = 2h/t^2 and v0 = 2h/t.
+local JUMP_HEIGHT  = 10.0    -- units of apex above the launch point
+local TIME_TO_APEX = 0.6   -- seconds
+local RISE_GRAVITY = 2 * JUMP_HEIGHT / ( TIME_TO_APEX * TIME_TO_APEX )
+local JUMP_SPEED   = 2 * JUMP_HEIGHT / TIME_TO_APEX
+-- Falling harder than rising is what keeps the apex floaty without making the
+-- descent feel weightless.
+local FALL_GRAVITY = RISE_GRAVITY * 1.8
+-- Terminal fall speed. Must clear the real impact speed, sqrt(2*h*FALL_GRAVITY),
+-- or the descent gets clamped slower than the climb. The inspector caps it at 100.
+local FALL_SPEED   = 100.0
+-- Fraction of the climb kept when jump is released early, for variable height.
+local JUMP_CUT     = 0.4
 
 -- Sharpness, in seconds to reach the target. This is how response is actually
 -- felt, and it keeps sprinting as snappy as walking instead of taking longer to
@@ -79,6 +94,17 @@ function on_update( entity, state, dt )
     state.velocity = velocity
     controller:set_walk_velocity( velocity )
 
+    -- Fall speed is a one-time controller setting, not a per-frame one.
+    if not state.jumpInit then
+        controller:set_fall_speed( FALL_SPEED )
+        state.jumpInit = true
+    end
+
+    -- get_linear_velocity() returns walkDirection + verticalVelocity*up, and the
+    -- walk direction is XZ only, so .y is the vertical velocity in units/second.
+    local upVel  = controller:get_linear_velocity().y
+    local rising = upVel > 0
+
     -- Jump timers. is_on_ground() is an exact-zero test that flickers on steps
     -- and slopes, so neither the ground state nor the keypress is trusted on the
     -- single frame it happens.
@@ -92,10 +118,24 @@ function on_update( entity, state, dt )
 
     if buffer > 0 and coyote > 0 then
         controller:jump( vec3( 0, JUMP_SPEED, 0 ) )
+        rising = true            -- launched this frame, so the climb starts now
+        state.jumpActive = true  -- this ascent is still eligible to be cut short
         -- Consume both, so one press cannot produce two jumps
         coyote = 0
         buffer = 0
+    elseif state.jumpActive and rising and not is_key_pressed( KeyboardKey.space ) then
+        -- Variable jump height. jump() is the only way a script can write vertical
+        -- velocity; it also overwrites Bullet's jump speed, but the configured
+        -- speed lives in a separate field, so nothing leaks into the next jump.
+        controller:jump( vec3( 0, upVel * JUMP_CUT, 0 ) )
+        state.jumpActive = false
+    elseif not rising then
+        state.jumpActive = false
     end
+
+    -- Set after the jump, so a launch on this frame gets the rise value on its
+    -- very first substep instead of having it shaved by the fall value.
+    controller:set_gravity( vec3( 0, -( rising and RISE_GRAVITY or FALL_GRAVITY ), 0 ) )
 
     state.coyote = coyote
     state.jumpBuffer = buffer
