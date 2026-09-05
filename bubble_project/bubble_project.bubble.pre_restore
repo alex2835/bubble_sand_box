@@ -25,7 +25,7 @@
   ]
  },
  "ProjectTree": {
-  "Counter": 3157,
+  "Counter": 3085,
   "Tree": {
    "Children": [
     {
@@ -283,18 +283,7 @@
      "Path": "./resources/shaders/phong",
      "Uniforms": {}
     },
-    "15": {
-     "Path": "shaders/phong/character_shader/character",
-     "Uniforms": {
-      "uColor": {
-       "__type": "vec4",
-       "w": 1.0,
-       "x": 1.0,
-       "y": 1.0,
-       "z": 1.0
-      }
-     }
-    },
+    "15": null,
     "19": {
      "Path": "./resources/shaders/phong",
      "Uniforms": {}
@@ -323,7 +312,7 @@
     },
     "27": {},
     "6": {
-     "CreateCubes": true
+     "CreateCubes": false
     }
    },
    "Tag": {
