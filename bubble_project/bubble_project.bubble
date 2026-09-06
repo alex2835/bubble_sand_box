@@ -3,29 +3,28 @@
  "Loader": {
   "models": [
    "./resources/models/error.obj",
-   "models/cube/cube.obj",
-   "models/bunny/bunny.obj",
-   "models/duck/duck.obj",
-   "models/banana/banana.obj",
-   "models/ball/ball.obj",
    "models/floor/floor.obj",
    "models/gribok/gribok.obj",
+   "models/ball/ball.obj",
+   "models/duck/duck.obj",
+   "models/banana/banana.obj",
+   "models/bunny/bunny.obj",
+   "models/cube/cube.obj",
    "models/cloth/cloth_z_up.obj",
    "models/capsule/capsule.obj"
   ],
   "shaders": [
+   "shaders/character",
    "./resources/shaders/phong",
-   "shaders/phong/character_shader/character",
    "./resources/shaders/white",
-   "./resources/shaders/only_diffuse",
-   "shaders/phong/p1"
+   "./resources/shaders/only_diffuse"
   ],
   "textures": [
    "./resources/images/utils/error.jpg"
   ]
  },
  "ProjectTree": {
-  "Counter": 3157,
+  "Counter": 3289,
   "Tree": {
    "Children": [
     {
@@ -173,14 +172,14 @@
       0.0
      ],
      "Distance": 405.79998779296875,
-     "Linear": 0.0119432732462883,
+     "Linear": 0.011089206673204899,
      "OuterCutOff": 36.77399826049805,
      "Position": [
-      -57.36243438720703,
-      16.9464168548584,
+      -48.90007400512695,
+      31.03812599182129,
       -23.84992027282715
      ],
-     "Quadratic": 0.0005530909402295947,
+     "Quadratic": 0.0004554463375825435,
      "Type": 2
     },
     "17": {
@@ -197,15 +196,15 @@
       -0.9835792779922485,
       -0.18047656118869781
      ],
-     "Distance": 867.7000122070313,
-     "Linear": 0.006434294395148754,
+     "Distance": 469.3800048828125,
+     "Linear": 0.009587114676833153,
      "OuterCutOff": 0.0,
      "Position": [
       9.962362289428711,
-      23.37422752380371,
-      39.4571647644043
+      20.04224967956543,
+      38.84602355957031
      ],
-     "Quadratic": 0.00018050335347652435,
+     "Quadratic": 0.00034041766775771976,
      "Type": 1
     }
    },
@@ -284,7 +283,7 @@
      "Uniforms": {}
     },
     "15": {
-     "Path": "shaders/phong/character_shader/character",
+     "Path": "shaders/character",
      "Uniforms": {
       "uColor": {
        "__type": "vec4",
@@ -401,8 +400,8 @@
     },
     "16": {
      "Position": [
-      -57.36243438720703,
-      16.9464168548584,
+      -48.90007400512695,
+      31.03812599182129,
       -23.84992027282715
      ],
      "Rotation": [
@@ -419,8 +418,8 @@
     "17": {
      "Position": [
       9.962362289428711,
-      23.37422752380371,
-      39.4571647644043
+      20.04224967956543,
+      38.84602355957031
      ],
      "Rotation": [
       0.18147094547748566,
@@ -435,8 +434,8 @@
     },
     "18": {
      "Position": [
-      -4.575390815734863,
-      12.055075645446777,
+      -4.939201831817627,
+      12.055074691772461,
       70.83128356933594
      ],
      "Rotation": [

@@ -1,5 +1,5 @@
-#include <common>
-#include <phong>
+use common;
+use phong;
 
 // Per-entity uniforms.
 //
