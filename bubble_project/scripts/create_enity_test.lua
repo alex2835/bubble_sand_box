@@ -11,11 +11,7 @@ local function spawn_cube()
         model      = "models/cube/cube.obj",
         shader     = "./resources/shaders/phong",
         state      = { health = 100 },
-        -- A light table instead of building a Light and mutating it. distance
-        -- is the radius at which the light fades to about 1% of full
-        -- brightness, in world units. Small values are honoured now - the old
-        -- lookup table clamped anything under 7 up to 7 without saying so.
-        light      = { point = true, distance = 3, brightness = 2.0, color = vec3( 1.0, 0.85, 0.6 ) },
+        light      = { point = true, distance = 5, brightness = 2.0, color = vec3( 1.0, 0.85, 0.6 ) },
         rigid_body = { box = vec3( 0.5 ), mass = 1, friction = 2.0 },
     }
 end

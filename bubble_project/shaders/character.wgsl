@@ -12,7 +12,7 @@ use phong;
 // initializer on a uniform. It is the value a fresh ShaderComponent starts at.
 struct UserUniforms
 {
-    uColor: vec4<f32>,   // @default(1, 1, 1, 1)
+    color: vec4<f32>,   // @default(1, 1, 1, 1)
 };
 @group(3) @binding(0) var<uniform> uUser: UserUniforms;
 
@@ -36,5 +36,5 @@ fn vs_main( in: VertexInput ) -> VertexOutput
 fn fs_main( in: VertexOutput ) -> @location(0) vec4<f32>
 {
     let phongColor = PhongFragment( in );
-    return phongColor * uUser.uColor;
+    return phongColor * uUser.color;
 }

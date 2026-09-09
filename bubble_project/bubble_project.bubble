@@ -19,12 +19,15 @@
    "./resources/shaders/white",
    "./resources/shaders/only_diffuse"
   ],
+  "sounds": [
+   "sounds/wind.mp3"
+  ],
   "textures": [
    "./resources/images/utils/error.jpg"
   ]
  },
  "ProjectTree": {
-  "Counter": 3289,
+  "Counter": 3385,
   "Tree": {
    "Children": [
     {
@@ -103,6 +106,20 @@
  },
  "Scene": {
   "Component pools": {
+   "AudioListener": null,
+   "AudioSource": {
+    "18": {
+     "Looping": true,
+     "MaxDistance": 100.0,
+     "MinDistance": 1.0,
+     "Path": "sounds/wind.mp3",
+     "Pitch": 1.0,
+     "PlayOnStart": true,
+     "Rolloff": 1.0,
+     "Spatialized": false,
+     "Volume": 0.6000000238418579
+    }
+   },
    "Camera": {
     "18": {
      "Far": 5004.0,
@@ -146,14 +163,14 @@
      "FallSpeed": 100.0,
      "Gravity": [
       0.0,
-      -29.899999618530273,
+      -30.0,
       0.0
      ],
      "Height": 4.0,
      "JumpSpeed": 10.0,
      "MaxSlopeRadians": 0.7853981852531433,
      "Radius": 2.390000104904175,
-     "StepHeight": 0.3499999940395355
+     "StepHeight": 0.5
     }
    },
    "Light": {
@@ -285,7 +302,7 @@
     "15": {
      "Path": "shaders/character",
      "Uniforms": {
-      "uColor": {
+      "color": {
        "__type": "vec4",
        "w": 1.0,
        "x": 1.0,
@@ -534,7 +551,8 @@
     1,
     2,
     6,
-    9
+    9,
+    10
    ],
    "19": [
     0,
