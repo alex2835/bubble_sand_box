@@ -36,6 +36,17 @@ local AIR_TIME_TO_TURN  = 0.20
 local COYOTE_TIME = 0.12   -- still jumpable just after walking off an edge
 local JUMP_BUFFER = 0.12   -- a jump pressed just before landing still counts
 
+-- Footsteps. Paced by ground covered rather than by a timer, so the cadence
+-- follows the actual speed: sprinting steps faster in proportion, and braking
+-- stretches the last interval on its own. Authored as a walking cadence and
+-- converted, because steps per second is the thing you can hear.
+local STEP_SOUND     = "sounds/step.mp3"
+local STEP_VOLUME    = 0.2
+local WALK_STEP_RATE = 2.5                          -- steps per second at WALK_SPEED
+local STRIDE         = WALK_SPEED / WALK_STEP_RATE  -- units of ground per step
+-- Below this the character is braking to a stop, not walking; no steps.
+local STEP_MIN_SPEED = WALK_SPEED * 0.25
+
 -- Moves `current` toward `target` by at most rate*dt, without overshooting.
 local function approach( current, target, rate, dt )
     local delta = target - current
@@ -48,9 +59,19 @@ local function approach( current, target, rate, dt )
     return current + normalize( delta ) * maxStep
 end
 
+function on_start( entity, state )
+    -- Decoding happens on load, so warming the cache here keeps the first step
+    -- from hitching on the frame it is taken.
+    load_sound( STEP_SOUND )
+end
+
 function on_update( entity, state, dt )
     local controller = entity:get_character_controller()
     local grounded   = controller:is_on_ground()
+    -- A real landing, as opposed to the one-frame flicker is_on_ground() shows
+    -- on steps and slopes. The coyote timer below is only exhausted after
+    -- COYOTE_TIME airborne, so read it here before this frame restarts it.
+    local landed     = grounded and not state.wasGrounded and ( state.coyote or 0 ) <= 0
 
     -- Input to a wish direction on the XZ plane, relative to the camera
     local moveForward, moveRight = 0, 0
@@ -139,6 +160,29 @@ function on_update( entity, state, dt )
 
     state.coyote = coyote
     state.jumpBuffer = buffer
+
+    -- Footsteps. play_sound is the right call here and not an AudioSource:
+    -- every call is its own voice, so a step is never cut off by the next one.
+    -- 2D on purpose - these are the player's own steps, and the listener is the
+    -- orbit camera 25-80 units away, where a spatialized step would be inaudible.
+    local moving = grounded and length( velocity ) > STEP_MIN_SPEED
+    if landed then
+        -- The foot hits the ground; that is a step. Also resets the stride so
+        -- the walk cadence starts fresh from the landing.
+        play_sound( STEP_SOUND, STEP_VOLUME )
+        state.stride = 0
+    elseif moving then
+        state.stride = ( state.stride or 0 ) + length( velocity ) * dt
+        if state.stride >= STRIDE then
+            -- Keep the remainder rather than zeroing, so the cadence stays even
+            -- instead of drifting by up to a frame per step.
+            state.stride = state.stride - STRIDE
+            play_sound( STEP_SOUND, STEP_VOLUME )
+        end
+    else
+        state.stride = 0
+    end
+    state.wasGrounded = grounded
 
     -- Red while airborne
     entity.uniforms.color = grounded and vec4( 1, 1, 1, 1 ) or vec4( 1, 0, 0, 1 )

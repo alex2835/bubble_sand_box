@@ -17,18 +17,16 @@ local function spawn_cube()
 end
 
 function on_update( entity, state, dt )
-    -- WARNING: spawning from on_update is not safe in the engine as it stands.
+    -- Spawning straight from on_update is supported. Engine::OnUpdate takes a
+    -- snapshot of the scripted entities before it calls any of them and looks
+    -- each one up again as it goes, so the pool reallocation these spawns cause
+    -- cannot pull the ground out from under the iteration.
     --
-    -- Engine::OnUpdate calls scripts from inside ForEach<StateComponent,
-    -- ScriptComponent>, and recs' ForEachTuple caches raw Pool pointers and
-    -- walks live std::vector indices. Adding an entity here pushes into the
-    -- very StateComponent pool being iterated, reallocating it underneath that
-    -- walk. It happens to survive often enough to look fine.
+    -- The new cubes are not in this frame's snapshot: they run on_start now and
+    -- their first on_update next frame. Nothing here needs deferring.
     --
-    -- Deferring the spawn by a frame does NOT help - the next frame's spawn is
-    -- inside the next frame's iteration. The fix belongs in the engine: run
-    -- scripts over a snapshot, or queue mutations and flush them at a frame
-    -- boundary.
+    -- The one place this does not hold is inside a for_each_entity callback,
+    -- which still walks the pools live - queue there and apply after the loop.
     if is_key_clicked( KeyboardKey.space ) and state.CreateCubes then
         for _ = 1, SPAWN_COUNT do
             spawn_cube()

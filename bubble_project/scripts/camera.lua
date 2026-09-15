@@ -7,6 +7,13 @@ local PI          = math.pi
 function on_start(entity, state)
     set_active_camera(entity)
 
+    -- Start the orbit where the camera entity was placed in the editor: the
+    -- angles and radius are taken from the transform relative to the player,
+    -- not from whatever the last run left in the component.
+    local camera = entity:get_camera()
+    camera.center = state.CharacterEntity.position
+    camera:orbit_from_transform( entity:get_transform() )
+
     -- Capture the mouse for orbiting. Centered first, otherwise the first frame
     -- reports the jump from wherever the pointer was sitting as camera movement
     -- and the view snaps on start.
@@ -50,5 +57,7 @@ function on_update(entity, state, dt)
         camera.radius = math.min( MAX_RADIUS, camera.radius + ZOOM_SPEED * dt )
     end
 
-    camera:update_orbit()
+    -- The orbit lands in the entity's transform, which is where a camera's
+    -- position and look direction live.
+    camera:update_orbit( entity:get_transform() )
 end
