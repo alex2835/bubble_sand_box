@@ -5,15 +5,16 @@ local SPAWN_COUNT = 100
 local function spawn_cube()
     -- Everything not given here has the obvious default: identity rotation,
     -- unit scale, and no shader means the engine's default one.
-    spawn{
+    local entity = spawn{
         tag        = "created in script entity",
         pos        = vec3( math.random( 1, 10 ), 10, math.random( 1, 10 ) ),
         model      = "models/cube/cube.obj",
-        shader     = "./resources/shaders/phong",
+        shader     = "./resources/shaders/white",
         state      = { health = 100 },
         light      = { point = true, distance = 5, brightness = 2.0, color = vec3( 1.0, 0.85, 0.6 ) },
         rigid_body = { box = vec3( 0.5 ), mass = 1, friction = 2.0 },
     }
+    -- print(entity)
 end
 
 function on_update( entity, state, dt )

@@ -1,6 +1,9 @@
 {
  "GlobalState": {},
  "Loader": {
+  "controllers": [
+   "animations/player.anim"
+  ],
   "models": [
    "./resources/models/error.obj",
    "models/cube/cube.obj",
@@ -11,7 +14,9 @@
    "models/floor/floor.obj",
    "models/gribok/gribok.obj",
    "models/cloth/cloth_z_up.obj",
-   "models/capsule/capsule.obj"
+   "models/capsule/capsule.obj",
+   "models/meshy_biped/Meshy_AI_biped.fbx",
+   "models/cesium_man/CesiumMan.glb"
   ],
   "shaders": [
    "./resources/shaders/phong",

@@ -1,0 +1,104 @@
+{
+  "editor": {
+    "positions": {
+      "airborne": [
+        346,
+        -162
+      ],
+      "hit": [
+        657,
+        -34
+      ],
+      "locomotion": [
+        353,
+        -34
+      ]
+    }
+  },
+  "entry": "locomotion",
+  "events": {
+    "Running_frame_rate_60.fbx": [
+      [
+        0.20000000298023224,
+        "step"
+      ],
+      [
+        0.699999988079071,
+        "step"
+      ]
+    ],
+    "Walking_frame_rate_60.fbx": [
+      [
+        0.25,
+        "step"
+      ],
+      [
+        0.75,
+        "step"
+      ]
+    ]
+  },
+  "parameters": {
+    "grounded": true,
+    "hit": "trigger",
+    "speed": 0
+  },
+  "root_joint": "Hips",
+  "states": {
+    "airborne": {
+      "clip": "BeHit_FlyUp_frame_rate_60.fbx",
+      "speed": 0
+    },
+    "hit": {
+      "clip": "BeHit_FlyUp_frame_rate_60.fbx",
+      "loop": false
+    },
+    "locomotion": {
+      "blend": {
+        "param": "speed",
+        "points": [
+          [
+            "Idle_frame_rate_60.fbx",
+            0
+          ],
+          [
+            "Walking_frame_rate_60.fbx",
+            40
+          ],
+          [
+            "Running_frame_rate_60.fbx",
+            70
+          ]
+        ]
+      }
+    }
+  },
+  "transitions": [
+    {
+      "duration": 0.15000000596046448,
+      "from": "locomotion",
+      "interrupt": true,
+      "to": "airborne",
+      "when": "!grounded"
+    },
+    {
+      "duration": 0.15000000596046448,
+      "from": "airborne",
+      "interrupt": true,
+      "to": "locomotion",
+      "when": "grounded"
+    },
+    {
+      "duration": 0.05000000074505806,
+      "from": "locomotion",
+      "to": "hit",
+      "when": "hit"
+    },
+    {
+      "duration": 0.25,
+      "exit_time": 0.8999999761581421,
+      "from": "hit",
+      "to": "return"
+    }
+  ]
+}

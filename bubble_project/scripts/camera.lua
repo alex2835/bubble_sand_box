@@ -1,3 +1,9 @@
+-- The player's orbit camera: a child of the player in prefabs/player.prefab.
+-- It orbits its parent. The camera's transform is local to the player, so
+-- the orbit's center is (0, 0, 0) - the player's origin - and the camera
+-- follows the player with nothing to do here. The player's root does not
+-- turn (its body does), so the local axes are the world's.
+
 local MIN_RADIUS  = 25.0
 local MAX_RADIUS  = 80.0
 local ZOOM_SPEED  = 15.0
@@ -11,7 +17,7 @@ function on_start(entity, state)
     -- angles and radius are taken from the transform relative to the player,
     -- not from whatever the last run left in the component.
     local camera = entity:get_camera()
-    camera.center = state.CharacterEntity.position
+    camera.center = vec3( 0, 0, 0 )
     camera:orbit_from_transform( entity:get_transform() )
 
     -- Capture the mouse for orbiting. Centered first, otherwise the first frame
@@ -34,10 +40,7 @@ function on_update(entity, state, dt)
     end
 
     local camera = entity:get_camera()
-    local player  = state.CharacterEntity
     
-    -- Keep orbit center locked to the player
-    camera.center = player.position
 
     -- Orbit rotation follows the mouse, but only while it is captured. Released,
     -- the pointer is being used on the editor and its movement is not camera

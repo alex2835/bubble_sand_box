@@ -41,7 +41,7 @@ local JUMP_BUFFER = 0.12   -- a jump pressed just before landing still counts
 -- stretches the last interval on its own. Authored as a walking cadence and
 -- converted, because steps per second is the thing you can hear.
 local STEP_SOUND     = "sounds/step.mp3"
-local STEP_VOLUME    = 0.2
+local STEP_VOLUME    = 0.1
 local WALK_STEP_RATE = 2.5                          -- steps per second at WALK_SPEED
 local STRIDE         = WALK_SPEED / WALK_STEP_RATE  -- units of ground per step
 -- Below this the character is braking to a stop, not walking; no steps.
@@ -57,6 +57,17 @@ local function approach( current, target, rate, dt )
         return target
     end
     return current + normalize( delta ) * maxStep
+end
+
+-- A camera vector on the ground plane, unit length. normalize() is NaN on a
+-- zero vector - a camera not set up yet, or one looking straight down - and a
+-- NaN would get into the velocity, so that case is zero.
+local function flat( v )
+    local f = vec3( v.x, 0, v.z )
+    if is_nearly_zero( f ) then
+        return f
+    end
+    return normalize( f )
 end
 
 function on_start( entity, state )
@@ -82,10 +93,12 @@ function on_update( entity, state, dt )
 
     local wishDir = vec3( 0, 0, 0 )
     if moveForward ~= 0 or moveRight ~= 0 then
-        local camera = state.CameraEntity:get_camera()
-        local fwd    = normalize( vec3( camera.forward.x, 0, camera.forward.z ) )
-        local right  = normalize( vec3( camera.right.x,   0, camera.right.z ) )
-        wishDir = normalize( fwd * moveForward + right * moveRight )
+        -- Whatever camera is looking: the prefab does not know the level's.
+        local camera = entity:find("camera"):get_camera()
+        local wish   = flat( camera.forward ) * moveForward + flat( camera.right ) * moveRight
+        if not is_nearly_zero( wish ) then
+            wishDir = normalize( wish )
+        end
     end
 
     local speed    = is_key_pressed( KeyboardKey.left_shift ) and SPRINT_SPEED or WALK_SPEED
@@ -184,6 +197,6 @@ function on_update( entity, state, dt )
     end
     state.wasGrounded = grounded
 
-    -- Red while airborne
-    entity.uniforms.color = grounded and vec4( 1, 1, 1, 1 ) or vec4( 1, 0, 0, 1 )
+    -- The body (player_mesh.lua, on the child) reads state.velocity and the
+    -- controller to animate and turn the model.
 end

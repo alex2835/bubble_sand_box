@@ -1,0 +1,267 @@
+{
+ "Scene": {
+  "Component pools": {
+   "Animator": {
+    "2": {
+     "Blend": [
+      {
+       "Clip": "Idle_frame_rate_60.fbx",
+       "Value": 0.0
+      },
+      {
+       "Clip": "Walking_frame_rate_60.fbx",
+       "Value": 40.0
+      },
+      {
+       "Clip": "Running_frame_rate_60.fbx",
+       "Value": 70.0
+      }
+     ],
+     "BlendValue": 0.0,
+     "Clip": "locomotion",
+     "Controller": "animations/player.anim",
+     "Loop": true,
+     "Speed": 1.0
+    }
+   },
+   "AudioListener": {
+    "5": {
+     "Active": true
+    }
+   },
+   "AudioSource": null,
+   "Camera": {
+    "5": {
+     "Far": 5004.0,
+     "Fov": 0.7039999961853027,
+     "Near": 0.10000000149011612,
+     "Pitch": 0.07814963907003403,
+     "Radius": 30.0,
+     "WorldUp": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "Yaw": -0.91096031665802
+    }
+   },
+   "CharacterController": {
+    "1": {
+     "FallSpeed": 100.0,
+     "Gravity": [
+      0.0,
+      -30.0,
+      0.0
+     ],
+     "Height": 3.0,
+     "JumpSpeed": 10.0,
+     "MaxSlopeRadians": 0.7853981852531433,
+     "Radius": 2.0,
+     "StepHeight": 0.5
+    }
+   },
+   "Folder": null,
+   "Hierarchy": {
+    "1": {
+     "Children": [
+      2,
+      3,
+      5
+     ],
+     "Parent": 0
+    },
+    "2": {
+     "Children": [],
+     "Parent": 1
+    },
+    "3": {
+     "Children": [],
+     "Parent": 1
+    },
+    "5": {
+     "Children": [],
+     "Parent": 1
+    }
+   },
+   "Light": {
+    "3": {
+     "Brightness": 1.0,
+     "Color": [
+      0.9537366628646851,
+      0.9388196468353271,
+      0.9096136093139648
+     ],
+     "Constant": 1.0,
+     "CutOff": 12.5,
+     "Direction": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "Distance": 274.739990234375,
+     "Linear": 0.01637912355363369,
+     "OuterCutOff": 17.5,
+     "Position": [
+      0.0,
+      6.74725866317749,
+      1.9277045726776123
+     ],
+     "Quadratic": 0.0009936135029420257,
+     "Type": 1
+    }
+   },
+   "Model": {
+    "2": {
+     "Path": "models/meshy_biped/Meshy_AI_biped.fbx"
+    }
+   },
+   "PrefabInstance": null,
+   "RigidBody": null,
+   "Script": {
+    "1": "scripts/character.lua",
+    "2": "scripts/player_mesh.lua",
+    "5": "scripts/camera.lua"
+   },
+   "Shader": {
+    "2": {
+     "Path": "./resources/shaders/phong",
+     "Uniforms": {}
+    }
+   },
+   "State": {
+    "1": {},
+    "2": {},
+    "5": {}
+   },
+   "Tag": {
+    "1": {
+     "Class": "Object",
+     "Tag": "player"
+    },
+    "2": {
+     "Class": "Object",
+     "Tag": "mesh"
+    },
+    "3": {
+     "Class": "Object",
+     "Tag": "ligh"
+    },
+    "5": {
+     "Class": "Object",
+     "Tag": "camera"
+    }
+   },
+   "Transform": {
+    "1": {
+     "Position": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "Rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "Scale": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "2": {
+     "Position": [
+      0.03062915802001953,
+      -3.056560516357422,
+      -0.04857969284057617
+     ],
+     "Rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "Scale": [
+      0.03999999910593033,
+      0.03999999910593033,
+      0.03999999910593033
+     ]
+    },
+    "3": {
+     "Position": [
+      0.0,
+      6.74725866317749,
+      1.9277045726776123
+     ],
+     "Rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "Scale": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "5": {
+     "Position": [
+      -1.0893964767456055,
+      13.192312240600586,
+      32.98932647705078
+     ],
+     "Rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ],
+     "Scale": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "Entity components": {
+   "1": [
+    0,
+    1,
+    6,
+    8,
+    9,
+    13
+   ],
+   "2": [
+    0,
+    1,
+    3,
+    5,
+    6,
+    9,
+    12,
+    13
+   ],
+   "3": [
+    0,
+    1,
+    4,
+    13
+   ],
+   "5": [
+    0,
+    1,
+    2,
+    6,
+    9,
+    11,
+    13
+   ]
+  },
+  "Entity counter": 7,
+  "Root": 1
+ }
+}
