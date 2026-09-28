@@ -1,315 +1,281 @@
 {
  "Scene": {
   "Component pools": {
-   "Animator": {
+   "animator": {
     "100": {
-     "Blend": [
-      {
-       "Clip": "Idle_frame_rate_60.fbx",
-       "Value": 0.0
-      },
-      {
-       "Clip": "Walking_frame_rate_60.fbx",
-       "Value": 40.0
-      },
-      {
-       "Clip": "Running_frame_rate_60.fbx",
-       "Value": 70.0
-      }
-     ],
-     "BlendValue": 0.0,
-     "Clip": "locomotion",
-     "Controller": "animations/player.anim",
-     "Loop": true,
-     "Speed": 1.0
+     "clip": "locomotion",
+     "controller": "animations/player.anim",
+     "loop": true,
+     "root_joint": "Hips",
+     "root_motion": false,
+     "speed": 1.0
     }
    },
-   "AudioListener": {
+   "audio_listener": {
     "102": {
-     "Active": true
+     "active": true
     }
    },
-   "AudioSource": {
+   "audio_source": {
     "29": {
-     "Looping": true,
-     "MaxDistance": 300.0,
-     "MinDistance": 100.0,
-     "Path": "sounds/wind.mp3",
-     "Pitch": 1.0,
-     "PlayOnStart": true,
-     "Rolloff": 1.1299999952316284,
-     "Spatialized": true,
-     "Volume": 1.0219999551773071
+     "looping": true,
+     "max_distance": 300.0,
+     "min_distance": 100.0,
+     "pitch": 1.0,
+     "play_on_start": true,
+     "rolloff": 1.1299999952316284,
+     "sound": "sounds/wind.mp3",
+     "spatialized": true,
+     "volume": 1.0219999551773071
     }
    },
-   "Camera": {
+   "camera": {
     "102": {
-     "Far": 5004.0,
-     "Fov": 0.7039999961853027,
-     "Near": 0.10000000149011612,
-     "Pitch": 0.07814963907003403,
-     "Radius": 30.0,
-     "WorldUp": [
+     "far": 5004.0,
+     "fov": 0.7039999961853027,
+     "near": 0.10000000149011612,
+     "pitch": 0.07814963907003403,
+     "radius": 30.0,
+     "world_up": [
       0.0,
       1.0,
       0.0
      ],
-     "Yaw": -0.91096031665802
+     "yaw": -0.91096031665802
     }
    },
-   "CharacterController": {
+   "character_controller": {
     "15": {
-     "FallSpeed": 100.0,
-     "Gravity": [
+     "fall_speed": 100.0,
+     "gravity": [
       0.0,
       -30.0,
       0.0
      ],
-     "Height": 3.0,
-     "JumpSpeed": 10.0,
-     "MaxSlopeRadians": 0.7853981852531433,
-     "Radius": 2.0,
-     "StepHeight": 0.5
+     "height": 3.0,
+     "jump_speed": 10.0,
+     "max_slope": 0.7853981852531433,
+     "radius": 2.0,
+     "step_height": 0.5
     }
    },
-   "Folder": {
+   "folder": {
     "35": {},
     "36": {},
     "37": {}
    },
-   "Hierarchy": {
+   "hierarchy": {
     "10": {
-     "Children": [],
-     "Parent": 36
+     "children": [],
+     "parent": 36
     },
     "100": {
-     "Children": [],
-     "Parent": 15
+     "children": [],
+     "parent": 15
     },
     "101": {
-     "Children": [],
-     "Parent": 15
+     "children": [],
+     "parent": 15
     },
     "102": {
-     "Children": [],
-     "Parent": 15
+     "children": [],
+     "parent": 15
     },
     "15": {
-     "Children": [
+     "children": [
       100,
       101,
       102
      ],
-     "Parent": 37
+     "parent": 37
     },
     "16": {
-     "Children": [],
-     "Parent": 37
+     "children": [],
+     "parent": 37
     },
     "17": {
-     "Children": [],
-     "Parent": 37
+     "children": [],
+     "parent": 37
     },
     "19": {
-     "Children": [],
-     "Parent": 36
+     "children": [],
+     "parent": 36
     },
     "20": {
-     "Children": [],
-     "Parent": 36
+     "children": [],
+     "parent": 36
     },
     "27": {
-     "Children": [],
-     "Parent": 36
+     "children": [],
+     "parent": 36
     },
     "29": {
-     "Children": [],
-     "Parent": 35
+     "children": [],
+     "parent": 35
     },
     "35": {
-     "Children": [
+     "children": [
       36,
       37,
       6,
       29
      ],
-     "Parent": 0
+     "parent": null
     },
     "36": {
-     "Children": [
+     "children": [
       19,
       20,
       27,
       10
      ],
-     "Parent": 35
+     "parent": 35
     },
     "37": {
-     "Children": [
+     "children": [
       15,
       16,
       17
      ],
-     "Parent": 35
+     "parent": 35
     },
     "6": {
-     "Children": [],
-     "Parent": 35
+     "children": [],
+     "parent": 35
     }
    },
-   "Light": {
+   "light": {
     "101": {
-     "Brightness": 1.0,
-     "Color": [
+     "brightness": 1.0,
+     "color": [
       0.9537366628646851,
       0.9388196468353271,
       0.9096136093139648
      ],
-     "Constant": 1.0,
-     "CutOff": 12.5,
-     "Direction": [
-      0.0,
-      -1.0,
-      0.0
-     ],
-     "Distance": 274.739990234375,
-     "Linear": 0.01637912355363369,
-     "OuterCutOff": 17.5,
-     "Position": [
-      -4.318823337554932,
-      7.248836517333984,
-      44.16407012939453
-     ],
-     "Quadratic": 0.0009936135029420257,
-     "Type": 1
+     "cut_off": 12.5,
+     "distance": 274.739990234375,
+     "outer_cut_off": 17.5,
+     "type": "point"
     },
     "16": {
-     "Brightness": 1.1299999952316284,
-     "Color": [
+     "brightness": 1.1299999952316284,
+     "color": [
       1.0,
       1.0,
       1.0
      ],
-     "Constant": 1.0,
-     "CutOff": 21.77400016784668,
-     "Direction": [
-      0.0,
-      -1.0,
-      0.0
-     ],
-     "Distance": 666.6500244140625,
-     "Linear": 0.006750168278813362,
-     "OuterCutOff": 54.36899948120117,
-     "Position": [
-      -121.82781982421875,
-      31.844175338745117,
-      -23.84992027282715
-     ],
-     "Quadratic": 0.00016875842993613333,
-     "Type": 2
+     "cut_off": 21.77400016784668,
+     "distance": 666.6500244140625,
+     "outer_cut_off": 54.36899948120117,
+     "type": "spot"
     },
     "17": {
-     "Brightness": 1.5700000524520874,
-     "Color": [
+     "brightness": 1.5700000524520874,
+     "color": [
       1.0,
       1.0,
       1.0
      ],
-     "Constant": 1.0,
-     "CutOff": 0.0,
-     "Direction": [
-      0.0,
-      -0.9835792779922485,
-      -0.18047656118869781
-     ],
-     "Distance": 370.7699890136719,
-     "Linear": 0.012136904522776604,
-     "OuterCutOff": 0.0,
-     "Position": [
-      121.71144104003906,
-      24.271312713623047,
-      35.95172119140625
-     ],
-     "Quadratic": 0.0005455720238387585,
-     "Type": 1
+     "cut_off": 0.0,
+     "distance": 134.6510009765625,
+     "outer_cut_off": 0.0,
+     "type": "point"
     }
    },
-   "Model": {
+   "model": {
     "10": {
-     "Path": "models/cube/cube.obj"
+     "model": "models/cube/cube.obj"
     },
     "100": {
-     "Path": "models/meshy_biped/Meshy_AI_biped.fbx"
+     "model": "models/meshy_biped/Meshy_AI_biped.fbx"
     },
     "19": {
-     "Path": "models/cube/cube.obj"
+     "model": "models/cube/cube.obj"
     },
     "20": {
-     "Path": "models/cube/cube.obj"
+     "model": "models/cube/cube.obj"
     },
     "27": {
-     "Path": "models/cube/cube.obj"
+     "model": "models/cube/cube.obj"
     }
    },
-   "PrefabInstance": {
+   "prefab_instance": {
     "15": {
-     "Prefab": "prefabs/player.prefab"
+     "prefab": "prefabs/player.prefab"
     }
    },
-   "RigidBody": {
+   "rigid_body": {
     "10": {
-     "Friction": 1.0,
-     "HalfExtends": [
+     "friction": 1.0,
+     "half_extents": [
       55.5,
       0.5,
       55.5
      ],
-     "Kinematic": false,
-     "Mass": 0.0,
-     "Shape": "Box"
+     "height": 1.0,
+     "kinematic": false,
+     "mass": 0.0,
+     "radius": 1.0,
+     "shape": "box"
     },
     "19": {
-     "Friction": 0.5,
-     "HalfExtends": [
+     "friction": 0.5,
+     "half_extents": [
       5.5,
       0.5,
       5.5
      ],
-     "Kinematic": false,
-     "Mass": 0.0,
-     "Shape": "Box"
+     "height": 1.0,
+     "kinematic": false,
+     "mass": 0.0,
+     "radius": 1.0,
+     "shape": "box"
     },
     "20": {
-     "Friction": 1.0,
-     "HalfExtends": [
+     "friction": 1.0,
+     "half_extents": [
       5.5,
       0.5,
       5.5
      ],
-     "Kinematic": false,
-     "Mass": 0.0,
-     "Shape": "Box"
+     "height": 1.0,
+     "kinematic": false,
+     "mass": 0.0,
+     "radius": 1.0,
+     "shape": "box"
     },
     "27": {
-     "Friction": 0.5,
-     "HalfExtends": [
+     "friction": 0.5,
+     "half_extents": [
       5.5,
       0.5,
       5.5
      ],
-     "Kinematic": true,
-     "Mass": 0.0,
-     "Shape": "Box"
+     "height": 1.0,
+     "kinematic": true,
+     "mass": 0.0,
+     "radius": 1.0,
+     "shape": "box"
     }
    },
-   "Script": {
-    "100": "scripts/player_mesh.lua",
-    "102": "scripts/camera.lua",
-    "15": "scripts/character.lua",
-    "27": "scripts/kinematic_floor.lua",
-    "6": "scripts/create_enity_test.lua"
+   "script": {
+    "100": {
+     "script": "scripts/player_mesh.lua"
+    },
+    "102": {
+     "script": "scripts/camera.lua"
+    },
+    "15": {
+     "script": "scripts/character.lua"
+    },
+    "27": {
+     "script": "scripts/kinematic_floor.lua"
+    },
+    "6": {
+     "script": "scripts/create_enity_test.lua"
+    }
    },
-   "Shader": {
+   "shader": {
     "10": {
      "Path": "./resources/shaders/phong",
      "Uniforms": {}
@@ -331,7 +297,7 @@
      "Uniforms": {}
     }
    },
-   "State": {
+   "state": {
     "100": {},
     "102": {},
     "15": {},
@@ -340,316 +306,316 @@
      "CreateCubes": true
     }
    },
-   "Tag": {
+   "tag": {
     "10": {
-     "Class": "Object",
-     "Tag": "floor"
+     "class": "Object",
+     "name": "floor"
     },
     "100": {
-     "Class": "Object",
-     "Tag": "mesh"
+     "class": "Object",
+     "name": "mesh"
     },
     "101": {
-     "Class": "Object",
-     "Tag": "ligh"
+     "class": "Object",
+     "name": "ligh"
     },
     "102": {
-     "Class": "Object",
-     "Tag": "camera"
+     "class": "Object",
+     "name": "camera"
     },
     "15": {
-     "Class": "Object",
-     "Tag": "playing sphere"
+     "class": "Object",
+     "name": "playing sphere"
     },
     "16": {
-     "Class": "Object",
-     "Tag": "Light"
+     "class": "Object",
+     "name": "Light"
     },
     "17": {
-     "Class": "Object",
-     "Tag": "Light2"
+     "class": "Object",
+     "name": "Light2"
     },
     "19": {
-     "Class": "Object",
-     "Tag": "floor2"
+     "class": "Object",
+     "name": "floor2"
     },
     "20": {
-     "Class": "Object",
-     "Tag": "floor3"
+     "class": "Object",
+     "name": "floor3"
     },
     "27": {
-     "Class": "Object",
-     "Tag": "floor kinematic"
+     "class": "Object",
+     "name": "floor kinematic"
     },
     "29": {
-     "Class": "Object",
-     "Tag": "Audio"
+     "class": "Object",
+     "name": "Audio"
     },
     "35": {
-     "Class": "Object",
-     "Tag": "main"
+     "class": "Object",
+     "name": "main"
     },
     "36": {
-     "Class": "Object",
-     "Tag": "ground"
+     "class": "Object",
+     "name": "ground"
     },
     "37": {
-     "Class": "Object",
-     "Tag": "player"
+     "class": "Object",
+     "name": "player"
     },
     "6": {
-     "Class": "Object",
-     "Tag": "ScriptGenerateCubes"
+     "class": "Object",
+     "name": "ScriptGenerateCubes"
     }
    },
-   "Transform": {
+   "transform": {
     "10": {
-     "Position": [
+     "position": [
       -24.405223846435547,
       -3.1868624687194824,
       0.0
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       110.99988555908203,
       0.9999845027923584,
       111.00039672851563
      ]
     },
     "100": {
-     "Position": [
+     "position": [
       0.03062915802001953,
       -3.056560516357422,
       -0.04857969284057617
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       0.03999999910593033,
       0.03999999910593033,
       0.03999999910593033
      ]
     },
     "101": {
-     "Position": [
+     "position": [
       0.0,
       6.74725866317749,
       1.9277045726776123
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
      ]
     },
     "102": {
-     "Position": [
+     "position": [
       -1.0893964767456055,
       13.192312240600586,
       32.98932647705078
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
      ]
     },
     "15": {
-     "Position": [
+     "position": [
       -4.318823337554932,
       0.5015778541564941,
       42.236366271972656
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
      ]
     },
     "16": {
-     "Position": [
-      -121.82781982421875,
+     "position": [
+      -93.1357421875,
       31.844175338745117,
       -23.84992027282715
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       0.9982978701591492,
       1.3799407482147217,
       0.9998250007629395
      ]
     },
     "17": {
-     "Position": [
-      121.71144104003906,
-      24.271312713623047,
-      35.95172119140625
+     "position": [
+      62.232391357421875,
+      4.3802289962768555,
+      4.704616069793701
      ],
-     "Rotation": [
+     "rotation": [
       0.09061101824045181,
       0.0,
       0.0,
       0.9958863854408264
      ],
-     "Scale": [
+     "scale": [
       0.9999953508377075,
       1.0,
       1.0
      ]
     },
     "19": {
-     "Position": [
+     "position": [
       48.44389724731445,
       -4.713385581970215,
       0.0
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       11.0,
       1.0,
       11.0
      ]
     },
     "20": {
-     "Position": [
+     "position": [
       66.28224182128906,
       -4.713385581970215,
       0.0
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       11.0,
       1.0,
       11.0
      ]
     },
     "27": {
-     "Position": [
+     "position": [
       -3.7601661682128906,
       5.792611598968506,
       -29.500076293945313
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       11.0,
       1.0,
       11.0
      ]
     },
     "29": {
-     "Position": [
+     "position": [
       -106.49897003173828,
       13.781957626342773,
       3.2106313705444336
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
      ]
     },
     "35": {
-     "Position": [
+     "position": [
       0.0,
       0.0,
       0.0
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
      ]
     },
     "36": {
-     "Position": [
+     "position": [
       0.0,
       0.0,
       0.0
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
      ]
     },
     "37": {
-     "Position": [
+     "position": [
       0.0,
       0.0,
       0.0
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
@@ -769,7 +735,6 @@
     13
    ]
   },
-  "Entity counter": 103,
   "Root": 35
  }
 }

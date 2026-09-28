@@ -86,10 +86,10 @@ function on_update( entity, state, dt )
 
     -- Input to a wish direction on the XZ plane, relative to the camera
     local moveForward, moveRight = 0, 0
-    if is_key_pressed( KeyboardKey.w ) then moveForward =  1 end
-    if is_key_pressed( KeyboardKey.s ) then moveForward = -1 end
-    if is_key_pressed( KeyboardKey.a ) then moveRight   = -1 end
-    if is_key_pressed( KeyboardKey.d ) then moveRight   =  1 end
+    if is_key_pressed( keyboard_key.w ) then moveForward =  1 end
+    if is_key_pressed( keyboard_key.s ) then moveForward = -1 end
+    if is_key_pressed( keyboard_key.a ) then moveRight   = -1 end
+    if is_key_pressed( keyboard_key.d ) then moveRight   =  1 end
 
     local wishDir = vec3( 0, 0, 0 )
     if moveForward ~= 0 or moveRight ~= 0 then
@@ -101,7 +101,7 @@ function on_update( entity, state, dt )
         end
     end
 
-    local speed    = is_key_pressed( KeyboardKey.left_shift ) and SPRINT_SPEED or WALK_SPEED
+    local speed    = is_key_pressed( keyboard_key.left_shift ) and SPRINT_SPEED or WALK_SPEED
     local velocity = state.velocity or vec3( 0, 0, 0 )
 
     if is_nearly_zero( wishDir ) then
@@ -130,7 +130,7 @@ function on_update( entity, state, dt )
 
     -- Fall speed is a one-time controller setting, not a per-frame one.
     if not state.jumpInit then
-        controller:set_fall_speed( FALL_SPEED )
+        controller.fall_speed = FALL_SPEED
         state.jumpInit = true
     end
 
@@ -144,7 +144,7 @@ function on_update( entity, state, dt )
     -- single frame it happens.
     local coyote = grounded and COYOTE_TIME or math.max( 0, ( state.coyote or 0 ) - dt )
     local buffer
-    if is_key_clicked( KeyboardKey.space ) then
+    if is_key_clicked( keyboard_key.space ) then
         buffer = JUMP_BUFFER
     else
         buffer = math.max( 0, ( state.jumpBuffer or 0 ) - dt )
@@ -157,7 +157,7 @@ function on_update( entity, state, dt )
         -- Consume both, so one press cannot produce two jumps
         coyote = 0
         buffer = 0
-    elseif state.jumpActive and rising and not is_key_pressed( KeyboardKey.space ) then
+    elseif state.jumpActive and rising and not is_key_pressed( keyboard_key.space ) then
         -- Variable jump height. jump() is the only way a script can write vertical
         -- velocity; it also overwrites Bullet's jump speed, but the configured
         -- speed lives in a separate field, so nothing leaks into the next jump.
@@ -169,12 +169,12 @@ function on_update( entity, state, dt )
 
     -- Set after the jump, so a launch on this frame gets the rise value on its
     -- very first substep instead of having it shaved by the fall value.
-    controller:set_gravity( vec3( 0, -( rising and RISE_GRAVITY or FALL_GRAVITY ), 0 ) )
+    controller.gravity = vec3( 0, -( rising and RISE_GRAVITY or FALL_GRAVITY ), 0 )
 
     state.coyote = coyote
     state.jumpBuffer = buffer
 
-    -- Footsteps. play_sound is the right call here and not an AudioSource:
+    -- Footsteps. play_sound is the right call here and not an audio_source:
     -- every call is its own voice, so a step is never cut off by the next one.
     -- 2D on purpose - these are the player's own steps, and the listener is the
     -- orbit camera 25-80 units away, where a spatialized step would be inaudible.

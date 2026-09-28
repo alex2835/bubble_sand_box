@@ -1,224 +1,200 @@
 {
  "Scene": {
   "Component pools": {
-   "Animator": {
+   "animator": {
     "2": {
-     "Blend": [
-      {
-       "Clip": "Idle_frame_rate_60.fbx",
-       "Value": 0.0
-      },
-      {
-       "Clip": "Walking_frame_rate_60.fbx",
-       "Value": 40.0
-      },
-      {
-       "Clip": "Running_frame_rate_60.fbx",
-       "Value": 70.0
-      }
-     ],
-     "BlendValue": 0.0,
-     "Clip": "locomotion",
-     "Controller": "animations/player.anim",
-     "Loop": true,
-     "Speed": 1.0
+     "controller": "animations/player.anim",
+     "loop": true,
+     "speed": 1.0
     }
    },
-   "AudioListener": {
+   "audio_listener": {
     "5": {
-     "Active": true
+     "active": true
     }
    },
-   "AudioSource": null,
-   "Camera": {
+   "audio_source": null,
+   "camera": {
     "5": {
-     "Far": 5004.0,
-     "Fov": 0.7039999961853027,
-     "Near": 0.10000000149011612,
-     "Pitch": 0.07814963907003403,
-     "Radius": 30.0,
-     "WorldUp": [
+     "far": 5004.0,
+     "fov": 0.7039999961853027,
+     "near": 0.10000000149011612,
+     "pitch": 0.07814963907003403,
+     "radius": 30.0,
+     "world_up": [
       0.0,
       1.0,
       0.0
      ],
-     "Yaw": -0.91096031665802
+     "yaw": -0.91096031665802
     }
    },
-   "CharacterController": {
+   "character_controller": {
     "1": {
-     "FallSpeed": 100.0,
-     "Gravity": [
+     "fall_speed": 100.0,
+     "gravity": [
       0.0,
       -30.0,
       0.0
      ],
-     "Height": 3.0,
-     "JumpSpeed": 10.0,
-     "MaxSlopeRadians": 0.7853981852531433,
-     "Radius": 2.0,
-     "StepHeight": 0.5
+     "height": 3.0,
+     "jump_speed": 10.0,
+     "max_slope": 0.7853981852531433,
+     "radius": 2.0,
+     "step_height": 0.5
     }
    },
-   "Folder": null,
-   "Hierarchy": {
+   "folder": null,
+   "hierarchy": {
     "1": {
-     "Children": [
+     "children": [
       2,
       3,
       5
-     ],
-     "Parent": 0
+     ]
     },
     "2": {
-     "Children": [],
-     "Parent": 1
+     "children": [],
+     "parent": 1
     },
     "3": {
-     "Children": [],
-     "Parent": 1
+     "children": [],
+     "parent": 1
     },
     "5": {
-     "Children": [],
-     "Parent": 1
+     "children": [],
+     "parent": 1
     }
    },
-   "Light": {
+   "light": {
     "3": {
-     "Brightness": 1.0,
-     "Color": [
+     "brightness": 1.0,
+     "color": [
       0.9537366628646851,
       0.9388196468353271,
       0.9096136093139648
      ],
-     "Constant": 1.0,
-     "CutOff": 12.5,
-     "Direction": [
-      0.0,
-      -1.0,
-      0.0
-     ],
-     "Distance": 274.739990234375,
-     "Linear": 0.01637912355363369,
-     "OuterCutOff": 17.5,
-     "Position": [
-      0.0,
-      6.74725866317749,
-      1.9277045726776123
-     ],
-     "Quadratic": 0.0009936135029420257,
-     "Type": 1
+     "cut_off": 12.5,
+     "distance": 274.739990234375,
+     "outer_cut_off": 17.5,
+     "type": "point"
     }
    },
-   "Model": {
+   "model": {
     "2": {
-     "Path": "models/meshy_biped/Meshy_AI_biped.fbx"
+     "model": "models/meshy_biped/Meshy_AI_biped.fbx"
     }
    },
-   "PrefabInstance": null,
-   "RigidBody": null,
-   "Script": {
-    "1": "scripts/character.lua",
-    "2": "scripts/player_mesh.lua",
-    "5": "scripts/camera.lua"
+   "prefab_instance": null,
+   "rigid_body": null,
+   "script": {
+    "1": {
+     "script": "scripts/character.lua"
+    },
+    "2": {
+     "script": "scripts/player_mesh.lua"
+    },
+    "5": {
+     "script": "scripts/camera.lua"
+    }
    },
-   "Shader": {
+   "shader": {
     "2": {
      "Path": "./resources/shaders/phong",
      "Uniforms": {}
     }
    },
-   "State": {
+   "state": {
     "1": {},
     "2": {},
     "5": {}
    },
-   "Tag": {
+   "tag": {
     "1": {
-     "Class": "Object",
-     "Tag": "player"
+     "class": "Object",
+     "name": "player"
     },
     "2": {
-     "Class": "Object",
-     "Tag": "mesh"
+     "class": "Object",
+     "name": "mesh"
     },
     "3": {
-     "Class": "Object",
-     "Tag": "ligh"
+     "class": "Object",
+     "name": "ligh"
     },
     "5": {
-     "Class": "Object",
-     "Tag": "camera"
+     "class": "Object",
+     "name": "camera"
     }
    },
-   "Transform": {
+   "transform": {
     "1": {
-     "Position": [
+     "position": [
       0.0,
       0.0,
       0.0
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
      ]
     },
     "2": {
-     "Position": [
+     "position": [
       0.03062915802001953,
       -3.056560516357422,
       -0.04857969284057617
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       0.03999999910593033,
       0.03999999910593033,
       0.03999999910593033
      ]
     },
     "3": {
-     "Position": [
+     "position": [
       0.0,
       6.74725866317749,
       1.9277045726776123
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
      ]
     },
     "5": {
-     "Position": [
+     "position": [
       -1.0893964767456055,
       13.192312240600586,
       32.98932647705078
      ],
-     "Rotation": [
+     "rotation": [
       0.0,
       0.0,
       0.0,
       1.0
      ],
-     "Scale": [
+     "scale": [
       1.0,
       1.0,
       1.0
@@ -261,7 +237,6 @@
     13
    ]
   },
-  "Entity counter": 7,
   "Root": 1
  }
 }

@@ -7,7 +7,7 @@
 -- picks idle / walk / run, whether it is on the ground picks the airborne
 -- pose, and the body turns to face the way it moves.
 
-local TURN_TIME = 0.12    -- seconds to face a new direction
+local TURN_TIME = 0.1    -- seconds to face a new direction
 
 function on_start( entity, state )
     state.yaw = 0
@@ -19,7 +19,7 @@ function on_update( entity, state, dt )
     local controller = player:get_character_controller()
 
     -- Feet on the ground: the capsule's centre, less half its height.
-    local halfHeight = controller:get_height() * 0.5 + controller:get_radius()
+    local halfHeight = controller.height * 0.5 + controller.radius
     entity.position = vec3( 0, -halfHeight, 0 )
 
     -- The speed character.lua decided on, in units per second. (The

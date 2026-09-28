@@ -30,8 +30,8 @@ end
 function on_update(entity, state, dt)
     -- Escape toggles the capture, so the editor stays clickable while the game
     -- is running. The engine releases the cursor on stop either way.
-    if is_key_clicked(KeyboardKey.escape) then
-        if get_cursor_mode() == CursorMode.locked then
+    if is_key_clicked(keyboard_key.escape) then
+        if get_cursor_mode() == cursor_mode.locked then
             lock_cursor( false )
         else
             center_cursor()
@@ -45,7 +45,7 @@ function on_update(entity, state, dt)
     -- Orbit rotation follows the mouse, but only while it is captured. Released,
     -- the pointer is being used on the editor and its movement is not camera
     -- input.
-    if get_cursor_mode() == CursorMode.locked then
+    if get_cursor_mode() == cursor_mode.locked then
         camera.yaw   = camera.yaw - mouse_offset_x() * SENSITIVITY
         -- Negate Y: window Y is flipped (positive = up), so mouse-up → camera up → look down
         camera.pitch = camera.pitch + mouse_offset_y() * SENSITIVITY
@@ -53,10 +53,10 @@ function on_update(entity, state, dt)
     end
 
     -- Zoom: Q zooms in, E zooms out
-    if is_key_pressed(KeyboardKey.q) then
+    if is_key_pressed(keyboard_key.q) then
         camera.radius = math.max( MIN_RADIUS, camera.radius - ZOOM_SPEED * dt )
     end
-    if is_key_pressed(KeyboardKey.e) then
+    if is_key_pressed(keyboard_key.e) then
         camera.radius = math.min( MAX_RADIUS, camera.radius + ZOOM_SPEED * dt )
     end
 
